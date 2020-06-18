@@ -1,0 +1,16 @@
+[
+    {
+        "ID": "001", 
+        "Image": "http://localhost/eShopper/Project/images/smartphone1.jpg",
+        "Name": "Iphone", 
+       
+        "price" :"Price: 200000"
+    },
+  
+    {
+        "ID": "002", 
+        "Image": "http://localhost/eShopper/Project/images/mathsbook1.jpg",
+        "Name": "Maths Book", 
+        "price" :"200"
+    }
+]
