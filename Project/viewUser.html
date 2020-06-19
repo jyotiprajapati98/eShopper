@@ -1,0 +1,111 @@
+<html>
+    <head>
+       <script src="jquery.min.js"></script>
+	   <script src="bootstrap.min.js"></script>
+	   <link href="bootstrap.min.css" rel="stylesheet">
+	   <link rel="stylesheet" href="css/admin.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+	</head>
+
+  <body class="body">
+    <nav class="navbar navbar-inverse"  style="background-color: #E62044">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">eShopper</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="home.html">Admin Home</a></li>
+      <li><a href="Admin.html">Admin Home</a></li>
+
+      <li><a href="viewSeller.html">View Seller</a></li>
+       <li><a href="viewUser.html">View User</a></li>
+    </ul>
+     <ul class="nav navbar-nav navbar-right">
+
+      <li><a href="aboutus.html">About us</a></li>
+      <li><a href="home.html">Logout</a></li>
+    </ul> 
+  </div>
+</nav>
+
+<div class="row1">
+  <div class="row2">
+    <div class="col1"></div>
+    <div class="col2">
+
+  <center><h2 class="h2">Users Info!</h2>
+  <p class="p">Users Connected with Us!...</p></center>          
+  <table class="table table-hover" id="tabledata">
+    <thead>
+      <tr class="info">
+        <th>Name</th>
+        <th>Email</th>
+        <th>User's History</th>
+      </tr>
+    </thead>
+    <tbody id="tablebody">
+
+    </tbody>
+  </table>
+   <script>
+    const url='http://localhost:3000/users';
+
+    axios.get(url)
+    .then(resp => {
+        data = resp.data;
+          tablebody.innerHTML = createTable(data);
+    })
+    .catch(error => {
+        console.log(error);
+    });   
+    
+    function createTable(data) {
+
+let table =''
+
+data.map(e => {
+  table += `<tr><td>${e.name}</td> <td>${e.email}</td> <td><button class="btn btn-info">History</button></td> </tr>`
+})
+return table;
+}
+
+</script>
+</div>
+
+</div>
+</div>
+
+<div class="row3">
+<!-- Footer -->
+<div class="footer">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+        <h5 class="mb-1">Register for free</h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/">eShopper.com</a>
+  </div>
+  <!-- Copyright -->
+
+</div>
+<!-- Footer -->
+</div>
+    
+     </div>
+  </body>
+</html>
