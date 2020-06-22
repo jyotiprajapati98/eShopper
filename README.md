@@ -2,7 +2,8 @@
 online shopping site project
 
 <ol>
-Reuirements:-
+Requirements:-
+ 
 <li>localhost server</li>
 <li>json server</li>
 </ol>
@@ -17,6 +18,6 @@ Languages:-
 
 <ol>
 Servers:-
-  <li>Xammp server,</li>
-  <li>open json-server</li>
+  <li>Xammp server for running the web pages</li>
+  <li>Open json-server for accessing the json database</li>
 </ol>
