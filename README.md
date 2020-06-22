@@ -7,12 +7,16 @@ Reuirements:-
 <li>json server</li>
 </ol>
 
+<ol>
 Languages:-
-HTML,
-CSS,
-Javascript,
-Bootstrap,
+  <li>HTML,</li>
+  <li>CSS,</li>
+  <li>Javascript,</li>
+  <li>Bootstrap,</li>
+</ol>
 
+<ol>
 Servers:-
-Xammp server,
-open json-server
+  <li>Xammp server,</li>
+  <li>open json-server</li>
+</ol>
