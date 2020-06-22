@@ -2,7 +2,7 @@
 online shopping site project
 
 <ol>
-  <li>Reuirements:-</li>
+Reuirements:-
 <li>localhost server</li>
 <li>json server</li>
 </ol>
