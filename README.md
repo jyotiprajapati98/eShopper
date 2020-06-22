@@ -1,16 +1,18 @@
 # eShopper
 online shopping site project
 
-Reuirements:-
-localhost server
-json server
+<ol>
+  <li>Reuirements:-</li>
+<li>localhost server</li>
+<li>json server</li>
+</ol>
 
 Languages:-
-HTML
-CSS
-Javascript
-Bootstrap
+HTML,
+CSS,
+Javascript,
+Bootstrap,
 
 Servers:-
-Xammp server
-open json server
+Xammp server,
+open json-server
