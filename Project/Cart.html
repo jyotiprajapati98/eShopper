@@ -1,0 +1,469 @@
+<html>
+<head>
+    <title>User Dashboard</title>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link href="bootstrap.min.css" rel="stylesheet"> -->
+
+    
+    </div>
+    <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+   
+      }
+      .center{
+        margin-top: 20px;
+        width: 500px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+      }
+      input[type=submit] {
+        background-color: #0000CC;
+        width: 700px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 6px 16px;
+        text-decoration: none;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      input[type=reset]{
+        background-color: #FF3300;
+        width: 700px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 6px 16px;
+        text-decoration: none;
+        margin-top: 10px;
+        margin-bottom: 20px; 
+        cursor: pointer;
+      }
+      input[type=text], input[type=number] {
+        margin: auto;
+        width: 700px;
+        height: 35px;
+        font-size: 20px;
+        border-radius: 5px;    
+        border-left-width: 15px;
+        border-color: #300108;
+      }
+        table[id=inner] {
+            width:90%;
+            background-color: #ffffff;
+            padding: 5px 5px;
+            border-width: 5px;
+            border-color: #660000;
+            border-radius: 10px;
+  }
+        table[id=tabledata] {
+            margin-left:20px; 
+            margin-top:20px;
+            font-size: 20px;
+
+  }
+    </style>
+    <link rel="stylesheet" href="css/mystyle.css">
+<!-- 
+    <nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
+     background-color: #300108">
+        <div class="container-fluid">
+          <div style="background-color:blanchedalmond; height:80px;width:185px;border-radius:50px;">
+        
+              <a class="navbar-brand" href="index.html" style="color:#300108;margin-top:10px; font-size: 40px;font-weight: bold;"><center>eshopper</center></a>
+          </div>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+           
+            <li class="nav-item" style="margin-left: 10px;">
+          <a class="nav-link" style="color: blanchedalmond;" href="displayAllProduct.html">Products</a>
+        </li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+        
+            <li><a style="font: blanchedalmond; margin-right: 20px;" href="user_dashboard.html"><span class="glyphicon glyphicon-user"></span>Dashboard </a></li>
+            <li><a style="font: blanchedalmond; margin-right: 20px;" href="cart.html"><span class="glyphicon glyphicon-log-in"></span> My Cart</a></li>
+            <li><a style="font: blanchedalmond;" href="logout.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      
+          </ul>
+        </div>
+      </nav>   -->
+
+  <nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
+     background-color: #212529">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a style="font-size: 18px; color: yellow;" class="navbar" >eShopper</a>
+          </div>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="home.html"> Home  </a></li>
+           
+           </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <a style="color: white;"  class="nav-link"  href="Cart.html">My Cart</a></li>
+             <li class="nav-item">
+                <a style="color: white;"  class="nav-link"  href="aboutus.html">About us</a></li>
+               
+            <script>
+
+                      if(sessionStorage.getItem("user_role")!=null){
+                                document.write(' <li class="nav-item"> <a style="color: white;"  class="nav-link"  href="logout.html">Logout</a></li> ');
+                              }
+                              else{
+                                document.write(' <li class="nav-item"><a style="color: white;"  class="nav-link"  href="signup.html">Sign Up</a></li> <li class="nav-item"><a style="color: white;"  class="nav-link" href="login.html">Login</a>');
+                      
+                              }
+                            </script>
+                      
+              <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Logout
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As User</a></li>
+                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As admin</a></li>
+              </ul> -->
+            </li>
+      
+          </ul>
+        </div>
+      </nav>
+ 
+
+<body>
+
+
+ 
+
+    <div class="row" style="margin: 20px">
+        <div class="leftcolumn" style="width: 25%">
+            <div class="card" style="height: 100px">
+                <table><tr>
+                    <td><img src="/images/person1.jpg" width="90" height="90" style="margin: 5px"></td>
+                    <td><h3>Hii user</h3></td>
+                </tr></table>
+            </div>
+            <div class="card"style=" margin-top:10px; height:300px">
+               
+               <table style="height: 100%">
+                   <tr><td><button style="width: 100%; height: 75px; background-color: aaa" id="personal">Personal Info</button></td></tr>
+                   <tr><td><button style="width: 100%; height: 75px; background-color: bbb" id="address">Address</button></td></tr>
+                   <tr><td><button style="width: 100%; height: 75px; background-color: aaa" id="order">My orders</button></td></tr>
+                   <tr><td><button style="width: 100%; height: 75px; background-color: bbb" id="cart">My cart</button></td></tr>
+               </table>
+               
+            </div>
+        </div>
+        <div class="rightcolumn" style="width: 75% ">
+            <div class="card" style="min-height: 610px; margin-left:10px">
+                    <table id="tabledata"> 
+                    
+                    <tbody id="tablebody">
+
+                    </tbody>
+                    </table>
+                    <script>
+                      // alert(sessionStorage.getItem("user_village"));
+                        myCart();
+                        document.getElementById("personal").onclick = function() {myPersonal()};
+                        //document.getElementById("address").onclick = function() {myAddress()};
+                        document.getElementById("order").onclick = function() {myOrder()};
+                        document.getElementById("cart").onclick = function() {myCart()};
+
+                        function myPersonal() {
+                          let uid = sessionStorage.getItem("user_id");
+                                const url='http://localhost:3000/users?id='+uid;
+                                axios.get(url)
+                                .then(resp => {
+                                    data = resp.data;
+                                    tablebody.innerHTML = createTable(data);
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });   
+                                
+                                function createTable(data) {
+
+                                    let table ='<tr><td><h2>Personal Info</h2></td></tr>'
+                                    var i=0;
+                                    data.map(e => {
+                                      table += `<br><tr><td>Name: ${e.name}</td></tr><br><tr><td>Email: ${e.email}</td></tr>`
+                                    })
+                                    return table;
+                                }
+                        }
+                        function myAddress() {
+                          let uid = sessionStorage.getItem("user_id");
+                          
+                                const url='http://localhost:3000/users?id='+uid;
+                                axios.get(url)
+                                .then(resp => {
+                                    data = resp.data;
+                                    tablebody.innerHTML = createTable(data);
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });   
+                                
+                                function createTable(data) {
+
+                                    let table =''
+                                   
+                                    data.map(e => {
+                                      table += `<tr><td><div class="center" enctype="multipart/form-data" method="post">
+                                                <label><h2><b>SHIPPING DETAILS</b><h2></label><br>
+                                                <label><b>Name</b></label><br>
+                                                <input type="text" id="name" value="${e.name}"><br>
+                                                <label><b>Mobile</b></label><br>
+                                                <input type="text" id="email" value="${e.email}"><br>
+                                                <label><b>Address</b></label><br>
+                                                <input type="text" id="addr" value="${e.Village}"><br>
+                                                <label><b>City</b></label><br>
+                                                <input type="text" id="city" value="${e.District}"><br>
+                                                <label><b>State</b></label><br>
+                                                <input type="text" id="state" value="${e.State}"><br>
+                                                <label><b>Pincode</b></label><br>
+                                                <input type="number" id="pin" value="${e.Pin}"><br>
+                                                <input type="submit" value="PLACE ORDER" style="font-size: 20px" id="placed" onclick="done()">
+                                                <input type="reset" value="RESET" style="font-size: 20px">
+                                              </div></td></tr>`
+                                   
+                                    
+                                    })
+
+                                   
+                                    return table;
+                                }
+                        }
+                        function myCart() {
+                          let uid = sessionStorage.getItem("user_id");
+                                const url='http://localhost:3000/cart?uid='+uid;
+                                axios.get(url)
+                                .then(resp => {
+                                    data = resp.data;
+                                    tablebody.innerHTML = createTable(data);
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });   
+                                
+                                function createTable(data) {
+
+                                    let table =''
+                                    var i=0;
+                                    var j=0;
+                                    data.map(e => {
+                                        table += `<tr style="margin-right:10px;">
+                                                    <td style="width:30%">
+                                                        <center><img src="${e.Img}" width="150" height="200"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="background-color:#ffffff">
+                                                        <center>${e.name}
+                                                        </center>
+                                                    </td>
+                                                    <td style="background-color:#ffffff">
+                                                        <center>${e.price}
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center><button style="margin-top:20px margin-bottom:20px; width:90%; background-color:#FF3300; border:none; border-radius:5px; padding:5px;" onclick="remove(${e.id})">Remove</button>
+                                                        </center>
+                                                    </td>
+                                                  </tr>`
+                                        i += parseInt(e.price);
+                                        j++;
+                                    })
+                                    table += `<tr><td></td><td></td><td></td><td><center>Total Payable: Rs. ${i}</center></td></tr>`
+                                    table += `<tr><td></td><td></td><td></td><td><button id="checkout" style="margin-top:20px; margin-right:10px; width:97%; background-color:#008000; color:white; border:none; border-radius:5px; padding:5px;" onclick="myAddress()">Checkout</button></td></tr>`
+                                    return table;
+                                }
+                        }
+                        function myOrder() {
+                          let uid = sessionStorage.getItem("user_id");
+                                const url='http://localhost:3000/cart?uid='+uid;
+                                axios.get(url)
+                                .then(resp => {
+                                    data = resp.data;
+                                    tablebody.innerHTML = createTable(data);
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });   
+                                
+                                function createTable(data) {
+
+                                    let table ='<tr></tr><br>'
+                                    var i=0;
+                                    var j=0;
+                                    data.map(e => {
+                                        if(i==4){
+                                            table+='<tr></tr>'
+                                            i=0;
+                                          }
+                                        table += `<td><table id="inner"><tr><td><img src="${e.Img}" width="225" height="300"/></td></tr><tr><td>${e.name} </td></tr><tr><td>Rs. ${e.price}</td></td></tr></table></td>`
+                                        i++;
+                                        j++;
+                                    })
+                                    return table;
+                                }
+                        }
+
+                        function remove(did){
+            //               let uid = sessionStorage.getItem("user_id");
+            //        const url='http://localhost:3000/cart/'+did+'/';
+                 
+            //        axios.delete(url)
+            //  .then(resp => {
+            //       console.log(resp.data)
+            //          }).catch(error => {
+            //           console.log(error);
+            //              });   
+                           window.location = "Cart.html";
+                        }
+
+                        // function done(){
+                    //  
+//                             window.location = "orderplaced.html";
+//                         }
+                        
+
+                        
+function done() {
+  let uid = sessionStorage.getItem("user_id");
+  const url='http://localhost:3000/cart?uid='+uid;
+ 
+
+  axios.get(url)
+    .then(resp => {
+        data = resp.data;
+        data.forEach(e => {
+        
+            var nid = new Date().getTime();
+            let id = e.id;
+            let pid = e.pid;
+            let sid = e.sid;
+            let name = e.name;
+            let description = e.description;
+            let price = e.price;
+            let Img=e.Img;
+          let uid = sessionStorage.getItem("user_id");
+          let Village = sessionStorage.getItem("user_village");
+          let District = sessionStorage.getItem("user_district");
+          let State = sessionStorage.getItem("user_state");
+          let Pin = sessionStorage.getItem("user_pin");
+          let status = "Shipped";
+            const insertUrl='http://localhost:3000/orders';
+          
+            axios.post(insertUrl, {
+              id:nid,
+            pid:pid,
+            uid: uid,
+            sid: sid,
+            name:name,
+            description:description,
+            price:price,
+            status:status,
+            Img:Img,
+            Village:Village,
+            District:District,
+            State:State,
+            Pin:Pin 
+
+      }).then(resp => {
+  //  alert("Item is added to cart !");
+    // window.location.href = "userCart.html";
+
+  console.log(resp.data);
+    }).catch(error => {
+        console.log(error);
+    });
+
+
+  });
+        
+  window.location = "orderplaced.html";    
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+    
+}
+
+                        
+                    </script> 
+            </div>
+        </div>
+    </div>
+
+<br><br><br><br>
+
+<!-- 
+
+<div  class="footer" style="background-color: #E62044">
+    <div class="container">
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <a href="aboutus.html" class="btn btn-primary" >About Us</a><br>
+        </li>
+      </ul>  
+    </div> 
+    <div class="footer">© 2020 Copyright:
+      <a href="home.html">eShopper.com</a>
+    </div>
+   </div> -->
+
+
+   <!-- Footer -->
+<div class="footer">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+        <h5 class="mb-1">Register for free</h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer">© 2020 Copyright:
+    <a href="home.html">eShopper.com</a>
+  </div>
+  <!-- Copyright -->
+
+</div>
+<!-- Footer -->
+     </div>
+</body>  
+ 
+</html>

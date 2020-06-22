@@ -8,13 +8,13 @@
 	</head>
 
   <body class="body">
-    <nav class="navbar navbar-inverse"  style="background-color: #E62044">
+    <nav class="navbar navbar-inverse"  style="background-color: #212529">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">eShopper</a>
+      <a style="color: yellow;"  class="navbar-brand" href="#">eShopper</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="home.html">Admin Home</a></li>
+      <li><a href="home.html">Home</a></li>
       <li><a href="Admin.html">Manage Requests</a></li>
 
       <li><a href="viewSeller.html">View Seller</a></li>
@@ -22,7 +22,17 @@
     </ul>
      <ul class="nav navbar-nav navbar-right">
        <li><a href="aboutus.html">About us</a></li>
-      <li><a href="home.html">Logout</a></li>
+       <script>
+
+        if(sessionStorage.getItem("user_role")!=null){
+                  document.write(' <li><a href="logout.html">Logout</a></li> ');
+                }
+                else{
+                  document.write(' <li><a href="signup.html">Sign Up</a></li><li><a href="login.html">Login</a></li>');
+        
+                }
+              </script>
+        
     </ul> 
   </div>
 </nav>

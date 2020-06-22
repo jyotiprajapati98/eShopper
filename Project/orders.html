@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+   
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+<link rel="stylesheet" href="css/mystyle.css">
+
+<nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
+background-color: #212529">
+   <div class="container-fluid">
+     <div class="navbar-header">
+       <a style="font-size: 18px; color: yellow;" class="navbar" >eShopper</a>
+     </div>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home  </a></li>
+        <li class="nav-item">
+            <a class="nav-link"  href="add_product.html">Add Product</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="product_seller.html">Products</a></li>
+        <li class="nav-item">
+            <a class="nav-link"  href="orders.html">Orders</a></li>
+      </ul>
+      <ul class="navbar-nav navbar-right">
+         <li class="nav-item">
+            <a class="nav-link"  href="aboutus.html">About us</a></li>
+            <script>
+
+              if(sessionStorage.getItem("user_role")!=null){
+                        document.write(' <li class="nav-item"> <a class="nav-link"  href="logout.html">Logout</a></li> ');
+                      }
+                      else{
+                        document.write(' <li class="nav-item"><a class="nav-link"  href="signup.html">Sign Up</a></li> <li class="nav-item"><a class="nav-link" href="login.html">Login</a>');
+              
+                      }
+                    </script>
+   
+              <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Logout
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As User</a></li>
+                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As admin</a></li>
+              </ul> -->
+        </li>
+  
+      </ul>
+    </div>
+  </nav>
+
+<style>
+
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+ 
+</style>
+
+<body>
+    <main class="container-fluid p-5">
+
+    <h2>User Orders</h2>
+    <hr>
+    <table id="tabledata" class="table table-striped">
+        <thead class="thead-dark">
+            <tr><th>Order Id</th><th>Product Id</th><th>Product Name</th><th>Price</><th>Description</th><th>Status</th><th>Action</th></tr>
+        </thead>
+
+        <tbody id="tablebody">
+
+        </tbody>
+        </table>
+    
+    </main>
+        
+
+
+<script>
+  let uid = sessionStorage.getItem("user_id");
+    const url='http://localhost:3000/orders?sid='+uid;
+
+    axios.get(url)
+    .then(resp => {
+        data = resp.data;
+          tablebody.innerHTML = createTable(data);
+    })
+    .catch(error => {
+        console.log(error);
+    });   
+    
+    function createTable(data) {
+
+let table =''
+
+data.map(e => {
+  table += `<tr><td>${e.id}</td> <td>${e.pid}</td> <td>${e.name}</td>  <td>${e.price}</td>  <td>${e.description}</td> <td>${e.status}</td> <td><a class='btn btn-success btn-sm' href='order_details.html?id1=${e.id}'>Edit</a></td> </tr>`
+})
+return table;
+}
+
+</script>
+
+
+<!-- Footer -->
+<div  class="footer">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+        <h5 class="mb-1">Register for free</h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer">© 2020 Copyright:
+    <a href="home.html">eShopper.com</a>
+  </div>
+  <!-- Copyright -->
+
+</div>
+<!-- Footer -->
+     </div>
+    </body>
+    </html>

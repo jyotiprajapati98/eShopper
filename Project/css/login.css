@@ -8,9 +8,9 @@
   padding: 70px; /* Some padding */
 }
 /* Bordered form */
-form {
+/* form {
   border: 3px solid #f1f1f1;
-}
+} */
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -97,7 +97,7 @@ span.psw {
 .footer {
   width: 100%;
   height:20%;
-  background-color: #E62044;
+  background-color: #212529;
   color: white;
   text-align: center;
 }
@@ -112,5 +112,11 @@ span.psw {
   color: #E62044;
 }
 
-
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: rgb(71, 243, 229);
+  }  
+  .navbar-inverse .navbar-nav>li>a {
+      color: white;
+  }
+  
 

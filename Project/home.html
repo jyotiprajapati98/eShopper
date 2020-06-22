@@ -5,31 +5,58 @@
 	   <link href="bootstrap.min.css" rel="stylesheet">
 	   <link rel="stylesheet" href="css/home.css">
      
+     
 	</head>
+ 
 
   <body>
-    <nav class="navbar navbar-inverse" style="background-color: #E62044">
+    
+    <nav class="navbar navbar-inverse bg-dark" style="background-color: #212529">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">eShopper</a>
+      <a style="color: yellow;" class="navbar-brand" href="#">eShopper</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="home.html">Admin Home</a></li>
-      <li><a href="Admin.html">Manage Requests</a></li>
-      <li><a href="viewSeller.html">View Seller</a></li>
-      <li><a href="viewUser.html">View User</a></li>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="displayAllProduct(jyoti).html">Products</a></li>
+      <script>
+// alert(sessionStorage.getItem("user_role"));
+        if(sessionStorage.getItem("user_role")=="Admin"){
+          document.write("<li><a href='Admin.html'>Manage Requests</a></li><li><a href='viewSeller.html'>View Seller</a></li><li><a href='viewUser.html'>View User</a></li>");
+        }
+        
+       
+      
+        if(sessionStorage.getItem("user_role")=="Seller"){
+          document.write(' <li><a class="nav-link"  href="add_product.html">Add Product</a></li><li><a class="nav-link" href="product_seller.html">Products</a></li><li><a class="nav-link"  href="orders.html">Orders</a></li> ');
+        }
+     
+      </script>
+  </ul>
     </ul>
     <ul class="nav navbar-nav navbar-right">
        <li><a href="aboutus.html">About us</a></li>
-      <li><a href="signup.html">Sign Up</a></li>
-            <li class="dropdown">
+      
+
+      <script>
+
+if(sessionStorage.getItem("user_role")!=null){
+          document.write(' <li><a href="logout.html">Logout</a></li> ');
+        }
+        else{
+          document.write(' <li><a href="signup.html">Sign Up</a></li><li><a href="login.html">Login</a></li>');
+
+        }
+      </script>
+
+            <!-- <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="login.html">As User</a></li>
           <li><a href="login.html">As admin</a></li>
         </ul>
-      </li>
+      </li> -->
 
     </ul>
   </div>
@@ -104,7 +131,7 @@
 
   <!-- Copyright -->
   <div class="footer">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/">eShopper.com</a>
+    <a href="home.html">eShopper.com</a>
   </div>
   <!-- Copyright -->
 
@@ -112,4 +139,5 @@
 <!-- Footer -->
      </div>
   </body>
+
 </html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+   
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+<link rel="stylesheet" href="css/mystyle.css">
+
+<nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
+background-color: #212529">
+   <div class="container-fluid">
+     <div class="navbar-header">
+       <a style="font-size: 18px; color: yellow;" class="navbar" >eShopper</a>
+     </div>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" href="home.html">Home  </a></li>
+        
+        <li class="nav-item">
+            <a class="nav-link"  href="add_product.html">Add Product</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="product_seller.html">Products</a></li>
+        <li class="nav-item">
+            <a class="nav-link"  href="orders.html">Orders</a></li>
+      </ul>
+      <ul class="navbar-nav navbar-right">
+         <li class="nav-item">
+            <a class="nav-link"  href="aboutus.html">About us</a></li>
+            <script>
+
+              if(sessionStorage.getItem("user_role")!=null){
+                        document.write(' <li class="nav-item"> <a class="nav-link"  href="logout.html">Logout</a></li> ');
+                      }
+                      else{
+                        document.write(' <li class="nav-item"><a class="nav-link"  href="signup.html">Sign Up</a></li> <li class="nav-item"><a class="nav-link" href="login.html">Login</a>');
+              
+                      }
+                    </script>
+   
+              <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Logout
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As User</a></li>
+                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As admin</a></li>
+              </ul> -->
+        </li>
+  
+      </ul>
+    </div>
+  </nav>
+
+
+<style>
+
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+ 
+</style>
+
+<body>
+    <main class="container-fluid p-5">
+
+    <h2>User Orders</h2>
+    <hr>
+    <table id="tabledata" class="table table-striped">
+        <thead class="thead-dark">
+            <tr><th>Order Id</th><th>Product Id</th><th>Product Name</th><th>Price</><th>Description</th></tr>
+        </thead>
+
+        <tbody id="tablebody">
+
+        </tbody>
+        </table>
+    
+    <form action="">
+      
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Status</label>
+           
+            <div class="col-sm-5">
+                <select required class="form-control" name="o_status" id="o_status" >
+
+                    <option selected="selected">Shipped</option>
+                    <option>InTransit</option>
+                    <option>Out for delivery</option>
+                    <option>Delivered</option>
+                    </select><br>   
+                            </div> 
+            </div>   
+            <button type="submit" id="updatebtn" name="updatebtn" class="btn btn-success btn-block">Update</button>
+        </form>
+      </main>
+        
+
+</body>
+<script>
+    const url='http://localhost:3000/orders';
+ 
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var id = urlParams.get('id1');
+    var pid , name ;
+   
+    var price ;
+    var status;
+    var description, st,sid,Village,District,State,Pin;
+    
+    axios.get(url)
+    .then(resp => {
+        data = resp.data;
+          tablebody.innerHTML = createTable(data);
+          o_status.value =  st;
+    })
+    .catch(error => {
+        console.log(error);
+    });   
+    
+    function createTable(data) {
+
+let table =''
+
+data.map(e => {
+    
+if(e.id == id){
+
+    pid = e.pid;
+    name = e.name ;
+    sid = e.sid ;
+    District = e.District ;
+    Village = e.Village ;
+    State = e.State ;
+    Pin = e.Pin ;
+     price = e.price;
+     status = e.status;
+     description = e.description;
+     st = e.status;
+
+
+  table += `<tr><td>${e.id}</td> <td id="pid">${e.pid}</td> <td id="name">${e.name}</td> <td id="price">${e.price}</td>  <td id="description">${e.description}</td>  </tr>`;
+ 
+}
+})
+return table;
+}
+
+
+
+updatebtn.onclick = function (e) {
+      e.preventDefault();
+      updateUser();
+    
+    };
+
+    function updateUser() {
+    
+  let status = o_status.value;
+
+      axios.put(url +"/" +id +"/",{ 
+          id,
+     pid,
+     sid,
+     name,
+    price,
+    status,
+    description,  
+    Village,
+            District,
+            State,
+            Pin
+
+      })
+        .then(function () { alert("Record updated!");   window.location.href = "orders.html";}).catch(function (er) { alert("Error!"); console.error(er) });
+    }
+
+
+</script>
+
+
+<!-- Footer -->
+<div id="bottom" class="footer">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+        <h5 class="mb-1">Register for free</h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer">© 2020 Copyright:
+    <a href="home.html">eShopper.com</a>
+  </div>
+  <!-- Copyright -->
+
+</div>
+
+     </html>

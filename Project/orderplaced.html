@@ -1,0 +1,231 @@
+<html>
+  <head>
+    <title>Sign Up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+      }
+      .center{
+        margin-top: 20px;
+        width: 500px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+      }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 20px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:active {
+        background-color: #ccc;
+      }
+      input[type=submit] {
+        background-color: #0000CC;
+        width: 500px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 6px 16px;
+        text-decoration: none;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      input[type=reset]{
+        background-color: #FF3300;
+        width: 500px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 6px 16px;
+        text-decoration: none;
+        margin-top: 10px;
+        margin-bottom: 20px; 
+        cursor: pointer;
+      }
+      input[type=text], input[type=number] {
+        margin: auto;
+        width: 500px;
+        height: 35px;
+        font-size: 20px;
+        border-radius: 5px;    
+        border-left-width: 15px;
+        border-color: #300108;
+      }
+      @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+          width: 100%;
+          margin-top: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <link rel="stylesheet" href="css/mystyle.css">
+
+<!-- 
+  <nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
+     background-color: #300108">
+        <div class="container-fluid">
+          <div style="background-color:blanchedalmond; height:80px;width:185px;border-radius:50px;">
+        
+              <a class="navbar-brand" href="index.html" style="color:#300108;margin-top:10px; font-size: 40px;font-weight: bold;"><center>eshopper</center></a>
+          </div>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+           
+            <li class="nav-item" style="margin-left: 10px;">
+          <a class="nav-link" style="color: blanchedalmond;" href="displayAllProduct(jyoti).html">Products</a>
+        </li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+        
+            <li><a style="font: blanchedalmond; margin-right: 20px;" href="user_dashboard.html"><span class="glyphicon glyphicon-user"></span>Dashboard </a></li>
+            <li><a style="font: blanchedalmond; margin-right: 20px;" href="cart.html"><span class="glyphicon glyphicon-log-in"></span> My Cart</a></li>
+            <li><a style="font: blanchedalmond;" href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      
+          </ul>
+        </div>
+      </nav> -->
+
+
+
+      <nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
+      background-color: #212529">
+         <div class="container-fluid">
+           <div class="navbar-header">
+             <a style="font-size: 18px; color: yellow;" class="navbar" >eShopper</a>
+           </div>
+           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+             <li class="nav-item">
+                 <a style="color: white; font-size: 14px;" class="nav-link" href="home.html"> Home  </a></li>
+            
+            </ul>
+           <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <a style="color: white; font-size: 14px;"  class="nav-link"  href="Cart.html">My Cart</a></li>
+              <li class="nav-item">
+                 <a style="color: white; font-size: 14px;"  class="nav-link"  href="aboutus.html">About us</a></li>
+                
+             <script>
+ 
+                       if(sessionStorage.getItem("user_role")!=null){
+                                 document.write(' <li class="nav-item"> <a style="color: white; font-size: 14px;"  class="nav-link"  href="logout.html">Logout</a></li> ');
+                               }
+                               else{
+                                 document.write(' <li class="nav-item"><a style="color: white; font-size: 14px;"  class="nav-link"  href="signup.html">Sign Up</a></li> <li class="nav-item"><a style="color: white; font-size: 14px;"  class="nav-link" href="login.html">Login</a>');
+                       
+                               }
+                             </script>
+                       
+               <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Logout
+               <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As User</a></li>
+                 <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As admin</a></li>
+               </ul> -->
+             </li>
+       
+           </ul>
+         </div>
+       </nav>
+  
+
+  <body>
+    <br><br><br>
+    <center><table>
+      <tr>
+        <td>
+          <h2>Hurray!! Order Placed</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button onclick="goto()">Continue Shopping</button>
+        </td>
+      </tr>
+    </table></center><br><br><br><br><br>
+
+
+
+   <!-- Footer -->
+  <br> <div class="footer">
+
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <h5 class="mb-1">Register for free</h5>
+        </li>
+        <li class="list-inline-item">
+          <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
+        </li>
+      </ul>
+      <!-- Call to action -->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer">© 2020 Copyright:
+      <a href="home.html">eShopper.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </div>
+  <!-- Footer -->
+       
+
+    <!-- <br><div  class="footer" style="background-color: #E62044">
+    <div class="container">
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <a href="aboutus.html" class="btn btn-primary" >About Us</a><br>
+        </li>
+      </ul>  
+    </div> 
+    <div class="footer">© 2020 Copyright:
+      <a href="home.html">eShopper.com</a>
+    </div>
+   </div>
+        -->
+  </body>
+  <script>
+
+    function goto(){
+
+            window.location = "displayAllProduct(jyoti).html";
+
+    }
+
+   
+              
+
+  </script>
+
+  
+</html>

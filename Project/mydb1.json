@@ -1,0 +1,360 @@
+{
+  "sellers": [
+    {
+      "id": 1,
+      "name": "Robert Schwartz",
+      "email": "rob23@gmail.com",
+      "title": "clothes",
+      "description": "i want to sell clothes"
+    },
+    {
+      "id": 2,
+      "name": "Lucy Ballmer",
+      "email": "lucyb56@gmail.com",
+      "title": " watches",
+      "description": "i want to sell watches"
+    },
+    {
+      "id": 3,
+      "name": "Anna Smith",
+      "email": "annasmith23@gmail.com",
+      "title": "footwear",
+      "description": "i want to sell footwear"
+    },
+    {
+      "id": 4,
+      "name": "Robert Brown",
+      "email": "bobbrown432@yahoo.com",
+      "title": "Grocery",
+      "description": "i want to sell Grocery"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Piyush Sharma",
+      "email": "piyushsharma@gmail.com",
+      "password": "pwdvalue",
+      "role": "Buyer",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 2,
+      "name": "Prince Rai",
+      "email": "princerai@gmail.com",
+      "password": "pwdvalue",
+      "role": "Buyer",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 3,
+      "name": "Anna Smith",
+      "email": "annasmith23@gmail.com",
+      "password": "pwdvalue",
+      "role": "Buyer",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 4,
+      "name": "Robert Brown",
+      "email": "bobbrown432@yahoo.com",
+      "password": "pwdvalue",
+      "role": "Buyer",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": "5",
+      "name": "gk",
+      "email": "gk@gmail.com",
+      "password": "pwdvalue",
+      "role": "Buyer",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 12,
+      "name": "mk1",
+      "email": "girish@gmail.com",
+      "password": "123",
+      "role": "Buyer",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 13,
+      "name": "new",
+      "email": "pk@gmail.com",
+      "password": "125",
+      "role": "Seller",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 14,
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "role": "Admin",
+      "Img": "http://localhost/eShopper/Project/images/person1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    }
+   
+  ],
+  "products": [
+    {
+      "id": "2",
+      "sid": "13",
+      "name": "jeans",
+      "category": "Cloths",
+      "price": "4651",
+      "status": "NotAvailable",
+      "description": "sdfsdfasdsd",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": "3",
+      "sid": "13",
+      "name": "sdfsdf",
+      "category": "Electronics",
+      "price": "846153",
+      "status": "Available",
+      "description": "fsdf",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": "4",
+      "sid": "13",
+      "name": "sdfsdf",
+      "category": "Electronics",
+      "price": "846153",
+      "status": "NotAvailable",
+      "description": "fsdf",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": "5",
+      "sid": "13",
+      "name": "fan",
+      "category": "Electronics",
+      "price": "3000",
+      "status": "Available",
+      "description": "dryhfgh",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": "946513",
+      "sid": "13",
+      "name": "edwe",
+      "category": "Grossery",
+      "price": "84615",
+      "status": "Available",
+      "description": "sdfsdf",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "sid": "13",
+      "name": "ksdhfkh",
+      "category": "Electronics",
+      "price": "864531",
+      "status": "Available",
+      "description": "werser",
+      "id": "1",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": "25",
+      "sid": "13",
+      "name": "fan",
+      "category": "Electronics",
+      "price": "2500",
+      "status": "Available",
+      "description": "",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "sid": "13",
+      "name": "aklsjd",
+      "category": "Electronics",
+      "price": "8645132",
+      "status": "Available",
+      "description": "aqsda",
+      "id": "20",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": 577,
+      "sid": "13",
+      "name": "tv",
+      "category": "Electronics",
+      "price": "50000",
+      "status": "Available",
+      "description": "aisi",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": 330,
+      "sid": "13",
+      "name": "fridge",
+      "category": "Electronics",
+      "price": "18000",
+      "status": "Available",
+      "description": "sdsdf",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": 43,
+      "pid": "2",
+      "sid": "13",
+      "name": "jeans",
+      "price": "4651",
+      "status": "InTransit",
+      "description": "sdfsdfasdsd",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 44,
+      "pid": "5",
+      "uid": "12",
+      "sid": "13",
+      "name": "fan",
+      "description": "dryhfgh",
+      "price": "3000",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 439,
+      "pid": "2",
+      "uid": "12",
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 22,
+      "pid": "2",
+      "uid": "12",
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 1592765733030,
+      "pid": "2",
+      "uid": "12",
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    },
+    {
+      "id": 1592765733031,
+      "pid": 577,
+      "uid": "12",
+      "sid": "13",
+      "name": "tv",
+      "description": "aisi",
+      "price": "50000",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
+    }
+  ],
+  "cart": [
+    {
+      "id": 796,
+      "pid": "2",
+      "uid": "12",
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": 135,
+      "pid": 577,
+      "uid": "12",
+      "sid": "13",
+      "name": "tv",
+      "description": "aisi",
+      "price": "50000",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": 1592803591311,
+      "pid": "2",
+      "uid": null,
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": 1592803881840,
+      "pid": "3",
+      "uid": "12",
+      "sid": "13",
+      "name": "sdfsdf",
+      "description": "fsdf",
+      "price": "846153",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    }
+  ]
+}

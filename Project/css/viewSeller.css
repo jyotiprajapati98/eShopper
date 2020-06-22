@@ -98,7 +98,7 @@ span.psw {
   
   width: 100%;
   height:20%;
-  background-color: #E62044;
+  background-color: #212529;
   color: white;
   text-align: center;
 }
@@ -108,3 +108,11 @@ span.psw {
 .h2 {
   color:#E62044;
 }
+
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: rgb(71, 243, 229);
+  }  
+  .navbar-inverse .navbar-nav>li>a {
+      color: white;
+  }
+  

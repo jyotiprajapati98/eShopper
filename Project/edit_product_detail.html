@@ -1,0 +1,269 @@
+<html>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <link rel="stylesheet" href="css/mystyle.css">
+
+
+
+    <nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
+     background-color: #212529">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a style="font-size: 18px; color: yellow;" class="navbar" >eShopper</a>
+          </div>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Home  </a></li>
+            
+            <li class="nav-item">
+                <a class="nav-link"  href="add_product.html">Add Product</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="product_seller.html">Products</a></li>
+            <li class="nav-item">
+                <a class="nav-link"  href="orders.html">Orders</a></li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+             <li class="nav-item">
+                <a class="nav-link"  href="aboutus.html">About us</a></li>
+              <script>
+
+                      if(sessionStorage.getItem("user_role")!=null){
+                                document.write(' <li class="nav-item"> <a class="nav-link"  href="logout.html">Logout</a></li> ');
+                              }
+                              else{
+                                document.write(' <li class="nav-item"><a class="nav-link"  href="signup.html">Sign Up</a></li> <li class="nav-item"><a class="nav-link" href="login.html">Login</a>');
+                      
+                              }
+                            </script>
+       
+                   <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Logout
+                   <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                     <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As User</a></li>
+                     <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As admin</a></li>
+                   </ul> -->
+            </li>
+      
+          </ul>
+        </div>
+      </nav>
+
+<body>
+    
+
+    <main class="container-fluid">
+        <div class="row my-4">
+            <div class="col-sm-8 offset-sm-2">
+           
+             <h1 class="my-4">Edit Product Details</h1>  
+             <hr>
+
+             
+            <form id="addhos" enctype="multipart/form-data">
+
+
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product ID</label>
+            <!-- <input type="number" id="hid" name="hid" placeholder="Enter Hospital ID"> -->
+            <div class="col-sm-10">
+                <input required disabled placeholder="Product id" class="form-control"  type="number" id="pid" name="pid" /><br>
+            </div> 
+            </div>   
+             
+
+
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input required placeholder="Product Name" class="form-control"  type="text" id="p_name" name="p_name" /><br>
+                </div> 
+                </div>   
+
+                 
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-10">
+
+                    <!-- <input required placeholder="Product Name" class="form-control"  type="text" id="p_category" name="p_category" /><br> -->
+
+                  <select required class="form-control" name="p_category" id="p_category">
+                        <option selected="selected">Select</option>
+                        <option >Electronics</option>
+                        <option >Grossery</option>
+                        <option >Cloths</option>
+                        <option >Furniture</option>
+                    </select><br>  
+                                </div> 
+                </div>
+          
+            
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input required placeholder="Price" class="form-control" type="number" id="p_price" name="p_price" /><br>
+                </div> 
+                </div>   
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Status</label>
+                    <div class="col-sm-10">
+
+
+                        <!-- <input required placeholder="Price" class="form-control" type="text" id="p_status" name="p_status" /><br> -->
+
+                        <select required class="form-control" name="p_status" id="p_status">
+
+                            <option selected="selected">Available</option>
+                            <option>NotAvailable</option>
+                            </select><br>   
+                                    </div> 
+                    </div>   
+    
+           
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea rows="5" placeholder="Product Description"  class="form-control" id="p_desc" name="p_desc" value=""></textarea><br>
+                </div> 
+                </div>   
+
+<!--             
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Image</label>
+                <div class="col-sm-10">
+                    <input placeholder="Attachment 1" class="form-control"  type="file" name="at1" />
+                    <h6 style="color: springgreen;">upload image of product</h6><br>
+                        </div> 
+                </div>   
+ -->
+
+               
+                        <button type="submit" id="updatebtn" name="updatebtn" class="btn btn-success btn-block">Update</button>
+                        
+                        <a class="inline btn btn-danger btn-block" href="edit_product_detail.html">Reset</a>    
+                           
+                       
+                     
+           
+            </form>
+            </div>
+            </div>
+
+
+</main>
+
+</body>
+
+<script>
+
+
+const url = 'http://localhost:3000/products';
+
+
+axios.get(url).then(resp => {
+    data = resp.data;
+    var array = getDataById(data);
+    pid.value = array[0];
+    p_name.value = array[1];
+    p_category.value = array[2];
+    p_price.value = array[3];
+    p_status.value = array[4];
+    p_desc.value = array[5];
+    // document.getElementById("id01").innerHTML  = getDataById(data);
+})
+.catch(error => {
+    console.log(error);
+});   
+
+function getDataById(data) {
+
+var elements;
+
+data.map(e => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+var id1 = urlParams.get('id1');
+
+if(e.id == id1){
+
+   
+    
+    elements = [`${e.id}`, `${e.name}`, `${e.category}`, `${e.price}` , `${e.status}` , `${e.description}`];
+
+}
+
+})
+return elements;
+}
+
+updatebtn.onclick = function (e) {
+      e.preventDefault();
+      updateUser();
+    };
+
+    function updateUser() {
+
+        let id = pid.value;
+  let name = p_name.value;
+  let category = p_category.value;
+  let price = p_price.value;
+  let status = p_status.value;
+  let description = p_desc.value;
+
+      axios.put(url +"/" +id +"/",{
+        id,
+    name,
+    category,
+    price,
+    status,
+    description
+      })
+        .then(function () { alert("Record updated!");   window.location.href = "product_seller.html"; }).catch(function (er) { alert("Error!"); console.error(er) });
+    }
+
+
+</script>
+
+
+
+
+<!-- Footer -->
+<div   class="footer">
+
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <h5 class="mb-1">Register for free</h5>
+        </li>
+        <li class="list-inline-item">
+          <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
+        </li>
+      </ul>
+      <!-- Call to action -->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer">© 2020 Copyright:
+      <a href="home.html">eShopper.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </div>
+  <!-- Footer -->
+       </div>
+</html>

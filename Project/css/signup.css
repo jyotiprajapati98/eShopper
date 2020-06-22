@@ -1,16 +1,16 @@
 .content {
-  position: absolute; /* Position the background text */
-  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: cyan; /* Grey text */
-  width: 100%; /* Full width */
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0); 
+  background: rgba(0, 0, 0, 0.5); 
+  color: cyan; 
+  width: 100%; Full width
   padding: 70px; /* Some padding */
 }
 /* Bordered form */
-form {
+/* form {
   border: 3px solid #f1f1f1;
-}
+} */
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -95,9 +95,12 @@ span.psw {
   width:100%;
 }
 .footer {
+  /* position: relative; 
+  bottom: 0;  */
+  padding: 15px;
   width: 100%;
   height:20%;
-  background-color: #E62044;
+  background-color: #212529;
   color: white;
   text-align: center;
 }
@@ -114,3 +117,10 @@ span.psw {
 
 
 
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: rgb(71, 243, 229);
+  }  
+  .navbar-inverse .navbar-nav>li>a {
+      color: white;
+  }
+  

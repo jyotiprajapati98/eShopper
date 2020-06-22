@@ -1,0 +1,49 @@
+ table 
+  {
+      font: 15px Calibri;
+  }
+  table, th, td 
+  {
+      border-collapse:collapse;
+      padding: 12px 2px;
+      text-align: center;
+      width: 150px;
+      line-height:2;
+  }
+  table img 
+  {
+      border: none;
+      width: 150px;
+      height: 120px;
+  }
+  button {
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 5px;
+      background-color: white; 
+      color:grey;
+      border: 2px solid #4CAF50;
+      cursor: pointer;
+      width: 120px;
+      margin-top: 10px;
+  }
+
+  button:hover {
+  background-color: #4CAF50;
+  color: white;
+  }
+  body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Roboto", sans-serif;
+  }
+  .footer{
+    background-color:#300108;
+
+    left: 0;
+ 
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
