@@ -126,7 +126,6 @@
       "State": "Chhattisgarh",
       "Pin": "496107"
     }
-   
   ],
   "products": [
     {
@@ -313,6 +312,21 @@
       "District": "Raigarh",
       "State": "Chhattisgarh",
       "Pin": "496107"
+    },
+    {
+      "id": 1592838854218,
+      "pid": "2",
+      "uid": "4",
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "status": "Shipped",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg",
+      "Village": "Rampur",
+      "District": "Raigarh",
+      "State": "Chhattisgarh",
+      "Pin": "496107"
     }
   ],
   "cart": [
@@ -355,6 +369,42 @@
       "description": "fsdf",
       "price": "846153",
       "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": 1592838827132,
+      "pid": "2",
+      "uid": "4",
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    },
+    {
+      "id": 1592838859818,
+      "pid": "2",
+      "uid": "4",
+      "sid": "13",
+      "name": "jeans",
+      "description": "sdfsdfasdsd",
+      "price": "4651",
+      "Img": "http://localhost/eShopper/Project/images/dress1.jpg"
+    }
+  ],
+  "viewSeller": [
+    {
+      "id": 548,
+      "name": "Robert Schwartz",
+      "email": "rob23@gmail.com",
+      "title": "clothes",
+      "description": "i want to sell clothes"
+    },
+    {
+      "id": 582,
+      "name": "Lucy Ballmer",
+      "email": "lucyb56@gmail.com",
+      "title": " watches",
+      "description": "i want to sell watches"
     }
   ]
 }

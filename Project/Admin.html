@@ -75,9 +75,73 @@
 let table =''
 
 data.map(e => {
-  table += `<tr><td>${e.name}</td> <td>${e.email}</td> <td>${e.title}</td> <td>${e.description}</td> </td><td><button class="btn btn-success">Allow</button><button class="btn btn-danger">Deny</button></td></tr>`
+  table += `<tr><td>${e.name}</td> <td>${e.email}</td> <td>${e.title}</td> <td>${e.description}</td> </td><td><button class="btn btn-success" id="addSeller" onclick=addSeller(${e.id})>Allow</button><button class="btn btn-danger"  id="deleteSeller" onclick=deleteSeller(${e.id})>Deny</button></td></tr>`
 })
 return table;
+}
+
+//add on clicking allow
+function addSeller(id){
+  const url='http://localhost:3000/sellers?id='+id;
+ 
+
+  axios.get(url)
+    .then(resp => {
+        data = resp.data;
+        data.forEach(e => {
+            var nid = new Date().getUTCMilliseconds();
+            let name = e.name;
+            let email = e.email;
+            let title = e.title;
+            let description = e.description;
+
+            const insertUrl='http://localhost:3000/viewSeller';
+            axios.post(insertUrl, {
+            id:nid,
+            name:e.name,
+            email:e.email,
+            title:e.title,
+            description:e.description
+      }).then(resp => {
+    alert("Seller is confirmed !");
+    window.location.href = "viewSeller.html";
+
+  console.log(resp.data);
+    }).catch(error => {
+        console.log(error);
+    });
+
+
+  });
+        
+         
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+//function delete Seller
+function deleteSeller(id){
+  const url='http://localhost:3000/sellers?='+id;
+
+            axios.delete(
+                'http://localhost:3000/sellers?='+id,{
+                	 id: e.id,
+                     name: e.name,
+                     email: e.email,
+                     title: e.title,
+                     description: e.description
+                }
+             ).then(resp => {
+    alert("Seller Request is deleted !");
+    window.location.href = "admin.html";
+
+  console.log(resp.data);
+    }).catch(error => {
+        console.log(error);
+    });       
+     
 }
 
 </script>
