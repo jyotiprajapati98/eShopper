@@ -94,7 +94,7 @@
       "price": "17999",
       "status": "Available",
       "description": "4 GB RAM, 64 GB ROM ",
-      "img": "http://localhost/eShopperProject/Project/images/pocox2.jpg"
+      "img": "http://localhost/eShopper/Project/images/pocox2.jpg"
     },
     {
       "id": 1592987703307,
@@ -104,7 +104,7 @@
       "price": "49999",
       "status": "Available",
       "description": "Laptop",
-      "img": "http://localhost/eShopperProject/Project/images/asuslaptop.jpg"
+      "img": "http://localhost/eShopper/Project/images/asuslaptop.jpg"
     },
     {
       "id": 1592987724398,
@@ -114,7 +114,7 @@
       "price": "45999",
       "status": "Available",
       "description": "Laptop",
-      "img": "http://localhost/eShopperProject/Project/images/lenovolaptop.jpg"
+      "img": "http://localhost/eShopper/Project/images/lenovolaptop.jpg"
     },
     {
       "id": 1592987756936,
@@ -124,7 +124,7 @@
       "price": "25999",
       "status": "Available",
       "description": "Printer",
-      "img": "http://localhost/eShopperProject/Project/images/hpprinter.jpg"
+      "img": "http://localhost/eShopper/Project/images/hpprinter.jpg"
     },
     {
       "id": 1592990131586,
@@ -134,7 +134,7 @@
       "price": "4999",
       "status": "Available",
       "description": "Blue colour",
-      "img": "http://localhost/eShopperProject/Project/images/cloth1.jpg"
+      "img": "http://localhost/eShopper/Project/images/cloth1.jpg"
     },
     {
       "id": 1592990157206,
@@ -144,7 +144,7 @@
       "price": "2999",
       "status": "Available",
       "description": "Sky Blue colour",
-      "img": "http://localhost/eShopperProject/Project/images/cloth2.jpg"
+      "img": "http://localhost/eShopper/Project/images/cloth2.jpg"
     },
     {
       "id": 1592990203822,
@@ -154,7 +154,7 @@
       "price": "899",
       "status": "Available",
       "description": "Designer t-shirt",
-      "img": "http://localhost/eShopperProject/Project/images/cloth5.jpg"
+      "img": "http://localhost/eShopper/Project/images/cloth5.jpg"
     },
     {
       "id": 1592990241765,
@@ -164,7 +164,7 @@
       "price": "1499",
       "status": "Available",
       "description": "Full sleve jacket",
-      "img": "http://localhost/eShopperProject/Project/images/cloth4.jpg"
+      "img": "http://localhost/eShopper/Project/images/cloth4.jpg"
     },
     {
       "id": 1592997876319,
@@ -174,7 +174,7 @@
       "price": "56666",
       "status": "Available",
       "description": "mbbhjmgbmb",
-      "img": "http://localhost/eShopperProject/Project/images/person1.jpg"
+      "img": "http://localhost/eShopper/Project/images/person1.jpg"
     }
   ],
   "orders": [
