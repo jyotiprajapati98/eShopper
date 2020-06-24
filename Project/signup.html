@@ -1,156 +1,258 @@
 <html>
     <head>
        <script src="jquery.min.js"></script>
-     <script src="bootstrap.min.js"></script>
-     <link href="bootstrap.min.css" rel="stylesheet">
-     <link rel="stylesheet" href="css/signup.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+       <script src="bootstrap.min.js"></script>
+       <link href="bootstrap.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="css/signup.css">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
   </head>
 
   <body>
     <nav class="navbar navbar-inverse" style="background-color: #212529">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a  style="color: yellow;" class="navbar-brand" href="#">eShopper</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="home.html">Home</a></li>
-     
-        
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a  style="color: yellow;" class="navbar-brand" href="#">eShopper</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="home.html">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-       <li><a href="aboutus.html">About us</a></li>
-       <script>
+          <li><a href="aboutus.html">About us</a></li>
+        <script>
+          if(sessionStorage.getItem("user_role")!=null){
+                      document.write(' <li><a href="logout.html">Logout</a></li> ');
+            }
+          else{
+                      document.write(' <li><a href="signup.html">Sign Up</a></li><li><a href="login.html">Login</a></li>');
+            }
+        </script>
+        </ul> 
+      </div>
+    </nav>
 
-        if(sessionStorage.getItem("user_role")!=null){
-                  document.write(' <li><a href="logout.html">Logout</a></li> ');
-                }
-                else{
-                  document.write(' <li><a href="signup.html">Sign Up</a></li><li><a href="login.html">Login</a></li>');
-        
-                }
-              </script>
-        
-    </ul> 
-  </div>
-</nav>
+    <style>
+          body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+          }
+          .center{
+            margin-top: 20px;
+            width: 500px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+          }
+          button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+          }
+          button:active {
+            background-color: #ccc;
+          }
+          input[type=submit] {
+            background-color: #0000CC;
+            width: 500px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 6px 16px;
+            text-decoration: none;
+            margin-top: 20px;
+            cursor: pointer;
+          }
+          input[type=reset]{
+            background-color: #FF3300;
+            width: 500px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 6px 16px;
+            text-decoration: none;
+            margin-top: 10px;
+            margin-bottom: 20px; 
+            cursor: pointer;
+          }
+          .form-control, input[type=text], input[type=number] {
+            margin: auto;
+            width: 500px;
+            height: 35px;
+            font-size: 20px;
+            border-radius: 5px;    
+            border-left-width: 15px;
+            border-color: #300108;
+          }
+          @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+              width: 100%;
+              margin-top: 0;
+            }
+          }
+        </style>
 
+        <table>
+          <tr>
+            <td style="width: 60%">
+              <img src="person1.jpg">
+            </td>
+            <td>
+              <form class="center" enctype="multipart/form-data" method="post" name="mygkform">
+                <center><h1 class="h1">Lets connect together...</h1></center>
+                <label><b>Name</b></label><br>
+                <input type="text" id="uname"><br>
+                <label><b>Mobile</b></label><br>
+                <input type="number" id="umono"><br>
+                <label><b>Email</b></label><br>
+                <input type="text" id="uemail"><br>
+                <label><b>Password</b></label><br>
+                <input type="text" id="upwd"><br>
+                <label><b>Confirm Password</b></label><br>
+                <input type="text" id="ucpwd"><br>
+                <label><b>Address</b></label><br>
+                <input type="text" id="uaddr"><br>
+                <label><b>City</b></label><br>
+                <input type="text" id="ucity"><br>
+                <label><b>State</b></label><br>
+                <input type="text" id="ustate"><br>
+                <label><b>Pincode</b></label><br>
+                <input type="number" id="upin"><br>
+                <label><b>Type</b></label><br>
+                <select required class="form-control" name="urole" id="urole" onChange="dis_able();">
+                        <option selected="selected">Buyer</option>
+                        <option>Seller</option>
+                </select><br> 
+                <label><b>Business Title</b></label><br>
+                <input type="text" id="utitle"><br>
+                <label><b>Business Description</b></label><br>
+                <input type="text" id="udes"><br>
+                <input type="submit" value="SIGN UP" style="font-size: 20px" id="submitbtn">
+                <input type="reset" value="RESET" style="font-size: 20px">
+              </form>
+            </td>
+          </tr>
+        </table>
 
-<div class="row1">
-<div class="row2">
-  <div class="col1"></div>
-  <div class="col2">
-    <center><h1 class="h1">Please fill the required fields!</h1></center>
+        <script>
+         document.mygkform.utitle.disabled=1;
+         document.mygkform.udes.disabled = 1;
+          function dis_able()
+          {
+            if(document.mygkform.urole.value == 'Seller')
+              { 
+                document.mygkform.utitle.disabled=0;
+                document.mygkform.udes.disabled = 0;
+              }
+            else
+              { 
+                document.mygkform.utitle.disabled=1;
+                document.mygkform.udes.disabled = 1;
+              }
+          }
+          const url = 'http://localhost:3000/users'
+          submitbtn.onclick = function (e) {
+                if(uname.value!="" && umono.value!="" && uemail.value!="" && upwd.value!="" && ucpwd.value!="" && uaddr.value!="" && ucity.value!="" && ustate.value!="" && upin.value!=""){
+                      if(upwd.value!=ucpwd.value){
+                          alert("Password Mismatched!");
+                        } 
+                      else{
+                            if(document.mygkform.urole.value == 'Seller'){
+                              if(utitle.value!="" && udes.value!=""){
+                                  e.preventDefault();
+                                  addSeller();
+                              }
+                              else{
+                                alert("All fields are mandatory");
+                              }
+                            }
+                            if(document.mygkform.urole.value == 'Buyer'){
+                              e.preventDefault();
+                              addUser();
+                            }
+                           }
+                 }
+                  else{
+                    alert("All fields are mandatory");
+                  }
+                    
+            };
+              
+            function addUser() {
+                var count = parseInt(localStorage.getItem("countuid")) + 1;
+                localStorage.setItem("countuid",count);
+                var id = new Date().getTime();   
+             
+                let name = uname.value;
+                let mono = umono.value;
+                let email = uemail.value;
+                let password = upwd.value;
+                let addr = uaddr.value;
+                let city = ucity.value;
+                let state = ustate.value;
+                let pin = upin.value;
+                let role = urole.value;
+                
+                axios.post(url, {
+                  id,
+                  name,
+                  mono,
+                  email,
+                  password,
+                  addr,
+                  city,
+                  state,
+                  pin,
+                  role
+                })
+                  .then(function () { alert("Record Inserted!");  window.location.href = "login.html"; }).catch(function (er) { alert("Error!"); console.error(er) });
+            }
+
+            function addSeller() {
+                var count = parseInt(localStorage.getItem("countuid")) + 1;
+                localStorage.setItem("countuid",count);
+                var id = new Date().getTime();   
+             
+                let name = uname.value;
+                let mono = umono.value;
+                let email = uemail.value;
+                let password = upwd.value;
+                let addr = uaddr.value;
+                let city = ucity.value;
+                let state = ustate.value;
+                let pin = upin.value;
+                let role = urole.value;
+                let title = utitle.value;
+                let description = udes.value;
+                let status = "requested";
+                axios.post(url, {
+                  id,
+                  name,
+                  mono,
+                  email,
+                  password,
+                  addr,
+                  city,
+                  state,
+                  pin,
+                  role, 
+                  title,
+                  description,
+                  status
+                })
+                  .then(function () { alert("Record Inserted!");  window.location.href = "login.html"; }).catch(function (er) { alert("Error!"); console.error(er) });
+              }
+          
+          
+          </script>
   
-    <form>
-
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Name</label>
-        <div class="col-sm-10">
-            <input required placeholder="Product Name" class="form-control"  type="text" id="uname" name="uname" /><br>
-        </div> 
-        </div>   
-
-         
-
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label"> E-mail</label>
-            <div class="col-sm-10">
-                <input required placeholder="Enter-Your-Email" class="form-control"  type="text" id="uemail" name="uemail" /><br>
-            </div> 
-            </div> 
-            
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Password</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="Password" placeholder="Enter-Your-Password" id="upwd" name="upwd" required>
-              </div> 
-              </div>   
-               <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Confirm Password</label>
-          <div class="col-sm-10">
-            <input class="form-control" type="Password" placeholder="Enter-Your-Confirm-Password" id="ucpwd" name="ucpwd" required>
-          </div> 
-          </div>
-
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Role</label>
-            <div class="col-sm-10">
-
-
-                <select required class="form-control" name="urole" id="urole">
-
-                    <option selected="selected">Buyer</option>
-                    <option>Seller</option>
-                    </select><br>   
-                            </div> 
-            </div>   
-
-  
-    
-    <!-- <input type="checkbox" checked="checked" name="remember"> Remember me! -->
-    <button id="submitbtn" name="submitbtn" type="submit">Submit</button></form>
-  
-  </div>
-</div>
 
 
 
 
-
-<script>
-                 
-
-  const url = 'http://localhost:3000/users'
-  
-  submitbtn.onclick = function (e) {
-
-    
-if(upwd.value!=ucpwd.value){
-  alert("Password Mismatched!");
-  window.location.href="signup.html";
-} 
-e.preventDefault();
-
-addUser();
-
-  
-    
-  };
-  
-  
-  function addUser() {
-    var count = parseInt(localStorage.getItem("countuid")) + 1;
- localStorage.setItem("countuid",count);
-  var id = count;   
- 
-    let name = uname.value;
-    let email = uemail.value;
-    let password = upwd.value;
-   let role = urole.value;
-    axios.post(url, {
-      id,
-      name,
-      email,
-      password,
-      role
-    })
-      .then(function () { alert("Record Inserted!");  window.location.href = "home.html"; }).catch(function (er) { alert("Error!"); console.error(er) });
-  }
-  
-  
-  </script>
-  
-
-
-
-<!-- Footer -->
 <div class="footer">
-
-  <!-- Footer Elements -->
   <div class="container">
-
-    <!-- Call to action -->
     <ul class="list-unstyled list-inline text-center py-2">
       <li class="list-inline-item">
         <h5 class="mb-1">Register for free</h5>
@@ -159,19 +261,11 @@ addUser();
         <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
       </li>
     </ul>
-    <!-- Call to action -->
-
   </div>
-  <!-- Footer Elements -->
-
-  <!-- Copyright -->
   <div class="footer">© 2020 Copyright:
     <a href="home.html">eShopper.com</a>
   </div>
-  <!-- Copyright -->
-
 </div>
-<!-- Footer -->
-     </div>
+     
   </body>
 </html>

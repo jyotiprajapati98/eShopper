@@ -49,6 +49,7 @@
     <thead>
       <tr class="info">
         <th>Name</th>
+        <th>Mobile</th>
         <th>Email</th>
         <th>Bussiness Title</th>
       </tr>
@@ -59,7 +60,7 @@
 
     </table>
     <script>
-    const url='http://localhost:3000/viewSeller';
+    const url='http://localhost:3000/users';
 
     axios.get(url)
     .then(resp => {
@@ -72,13 +73,15 @@
     
     function createTable(data) {
 
-let table =''
+            let table =''
 
-data.map(e => {
-  table += `<tr><td>${e.name}</td> <td>${e.email}</td> <td>${e.title}</td> </tr>`
-})
-return table;
-}
+            data.map(e => {
+              if(e.role=="Seller"  && e.status=="permitted"){
+                  table += `<tr><td>${e.name}</td><td>${e.mono}</td> <td>${e.email}</td> <td>${e.title}</td> </tr>`
+              }
+            })
+            return table;
+   }
 
 </script>
 

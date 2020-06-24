@@ -48,7 +48,7 @@
     <thead>
       <tr class="info">
         <th>Name</th>
-        <th>Email</th>
+        <th>Mobile No.</th>
         <th>Bussiness Title</th>
         <th>Bussiness Description</th>
         <th>Permissions</th>
@@ -59,7 +59,7 @@
     </tbody>
   </table>
   <script>
-    const url='http://localhost:3000/sellers';
+    const url='http://localhost:3000/users';
 
     axios.get(url)
     .then(resp => {
@@ -72,77 +72,103 @@
     
     function createTable(data) {
 
-let table =''
+            let table =''
 
-data.map(e => {
-  table += `<tr><td>${e.name}</td> <td>${e.email}</td> <td>${e.title}</td> <td>${e.description}</td> </td><td><button class="btn btn-success" id="addSeller" onclick=addSeller(${e.id})>Allow</button><button class="btn btn-danger"  id="deleteSeller" onclick=deleteSeller(${e.id})>Deny</button></td></tr>`
-})
-return table;
-}
+            data.map(e => {
+              if(e.role=="Seller" && e.status=="requested"){
+                table += `<tr><td>${e.name}</td> <td>${e.mono}</td> <td>${e.title}</td> <td>${e.description}</td> </td><td><button class="btn btn-success" onclick="allow(${e.id})">Allow</button><button class="btn btn-danger" onclick="deny(${e.id})">Deny</button></td></tr>`
+              }
+              
+            })
+            return table;
+        }
 
-//add on clicking allow
-function addSeller(id){
-  const url='http://localhost:3000/sellers?id='+id;
- 
-
-  axios.get(url)
-    .then(resp => {
-        data = resp.data;
-        data.forEach(e => {
-            var nid = new Date().getUTCMilliseconds();
-            let name = e.name;
-            let email = e.email;
-            let title = e.title;
-            let description = e.description;
-
-            const insertUrl='http://localhost:3000/viewSeller';
-            axios.post(insertUrl, {
-            id:nid,
-            name:e.name,
-            email:e.email,
-            title:e.title,
-            description:e.description
-      }).then(resp => {
-    alert("Seller is confirmed !");
-    window.location.href = "viewSeller.html";
-
-  console.log(resp.data);
-    }).catch(error => {
-        console.log(error);
-    });
-
-
-  });
-        
-         
-    })
-    .catch(error => {
-        console.log(error);
-    });
-}
-
-//function delete Seller
-function deleteSeller(id){
-  const url='http://localhost:3000/sellers?='+id;
-
-            axios.delete(
-                'http://localhost:3000/sellers?='+id,{
-                	 id: e.id,
-                     name: e.name,
-                     email: e.email,
-                     title: e.title,
-                     description: e.description
+        function allow(id){
+          
+          const url1='http://localhost:3000/users/'+id;
+          
+          axios.get(url)
+          .then(resp => {
+              data = resp.data;
+              
+              data.map(e => {
+                if(id == e.id){
+                    let name = e.name;
+                    let mono = e.mono;
+                    let email = e.email;
+                    let password = e.password;
+                    let addr = e.addr;
+                    let city = e.city;
+                    let state = e.state;
+                    let pin = e.pin;
+                    let role = e.role; 
+                    let title = e.title;
+                    let description = e.description;
+                    let status = "permitted";
+                
+                axios.put(url1,{
+                      name,
+                      mono,
+                      email,
+                      password,
+                      addr,
+                      city,
+                      state,
+                      pin,
+                      role, 
+                      title,
+                      description,
+                      status
+              })
+                .then(function () { alert("Record updated!");   window.location.href = "Admin.html"; }).catch(function (er) { alert("Error!"); console.error(er) });
                 }
-             ).then(resp => {
-    alert("Seller Request is deleted !");
-    window.location.href = "admin.html";
+              })
+          })
+        }
 
-  console.log(resp.data);
-    }).catch(error => {
-        console.log(error);
-    });       
-     
-}
+        function deny(id){
+          
+          const url1='http://localhost:3000/users/'+id;
+          
+          axios.get(url)
+          .then(resp => {
+              data = resp.data;
+              
+              data.map(e => {
+                if(id == e.id){
+                    let name = e.name;
+                    let mono = e.mono;
+                    let email = e.email;
+                    let password = e.password;
+                    let addr = e.addr;
+                    let city = e.city;
+                    let state = e.state;
+                    let pin = e.pin;
+                    let role = e.role; 
+                    let title = e.title;
+                    let description = e.description;
+                    let status = "rejected";
+                
+                axios.put(url1,{
+                      name,
+                      mono,
+                      email,
+                      password,
+                      addr,
+                      city,
+                      state,
+                      pin,
+                      role, 
+                      title,
+                      description,
+                      status
+              })
+                .then(function () { alert("Record updated!");   window.location.href = "Admin.html"; }).catch(function (er) { alert("Error!"); console.error(er) });
+                }
+              })
+          })
+        }
+        
 
 </script>
 

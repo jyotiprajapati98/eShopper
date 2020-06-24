@@ -97,7 +97,7 @@ background-color: #212529">
 
 
 <script>
-  let uid = sessionStorage.getItem("user_id");
+    let uid = sessionStorage.getItem("user_id");
     const url='http://localhost:3000/orders?sid='+uid;
 
     axios.get(url)
@@ -111,13 +111,13 @@ background-color: #212529">
     
     function createTable(data) {
 
-let table =''
+          let table =''
 
-data.map(e => {
-  table += `<tr><td>${e.id}</td> <td>${e.pid}</td> <td>${e.name}</td>  <td>${e.price}</td>  <td>${e.description}</td> <td>${e.status}</td> <td><a class='btn btn-success btn-sm' href='order_details.html?id1=${e.id}'>Edit</a></td> </tr>`
-})
-return table;
-}
+          data.map(e => {
+            table += `<tr><td>${e.id}</td> <td>${e.pid}</td> <td>${e.name}</td>  <td>${e.price}</td>  <td>${e.description}</td> <td>${e.status}</td> <td><a class='btn btn-success btn-sm' href='order_details.html?id1=${e.id}'>Edit</a></td> </tr>`
+          })
+          return table;
+    }
 
 </script>
 

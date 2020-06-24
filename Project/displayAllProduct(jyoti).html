@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
@@ -46,39 +37,8 @@
 </style>
 
 
-<!--body start from here -->
 <body>
-<!--Nav bar is here -->
-<!--  
-<nav class="navbar navbar-expand-lg navbar-light " style="height: 80px; font-size: 17px; background-color:#300108;">
-  <div style="background-color:blanchedalmond; height:80px;width:120px;border-radius:50px;">
-      
-      <a class="navbar-brand" href="index.html" style="color:#300108;margin-top:10px; font-size: 20px;font-weight: bold;">eshopper</a>
-  </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active" style="margin-left: 10px;">
-        <a class="nav-link" href="index.html" style="color: blanchedalmond;">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item" style="margin-left: 10px;">
-        <a class="nav-link" style="color: blanchedalmond;" href="products.html">Products</a>
-      </li>
-      <li class="nav-item" style="margin-left: 10px;">
-        <a class="nav-link " style="color: blanchedalmond;" href="#">About</a>
-      </li>
-    </ul>
-    <ul class="nav  navbar-right">
-      <li><a  href="signup.html"><i class="fa fa-user" style="font-size:17px;color:darkcyan;">  Sign Up</i> </a></li>
-      <li><a style="color: blanchedalmond;" href="login.html"><i class="fa fa-sign-in" style="font-size:17px;color:darkcyan;"> Login</i></a></li>
-    </ul>
-  </div>
-</nav>  -->
-
- 
 <nav class="navbar navbar-inverse bg-dark" style="background-color: #212529">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -104,13 +64,14 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <!-- <li><a href="User_Dashboard.html">Dashboard</a></li> -->
-      <li><a style="color: white;"  href="Cart.html">My Cart</a></li>
+      
        <li><a style="color: white;"  href="aboutus.html">About us</a></li>
       
 
       <script>
 
 if(sessionStorage.getItem("user_role")!=null){
+          document.write(' <li><a style="color: white;"  href="Cart.html">My Cart</a></li> ');
           document.write(' <li><a style="color: white;"  href="logout.html">Logout</a></li> ');
         }
         else{
@@ -118,16 +79,6 @@ if(sessionStorage.getItem("user_role")!=null){
 
         }
       </script>
-
-            <!-- <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="login.html">As User</a></li>
-          <li><a href="login.html">As admin</a></li>
-        </ul>
-      </li> -->
-
     </ul>
   </div>
 </nav>
@@ -189,7 +140,7 @@ data.map(e => {
   table += `<tr id="item"><td>${e.name}</td> 
                 <td>${e.description}</td> 
                 <td style="color:red;">Rs.${e.price}</td> 
-                <td><img src="${e.Img}" width="300" height="300"/></td>
+                <td><img src="${e.img}" width="300" height="500"/></td>
                 <td><button id="itemAdded" onclick=itemAdded(${e.id})>Add to Cart</button></td></tr>`
 })
 return table;
@@ -218,7 +169,7 @@ function itemAdded(id){
             let name = e.name;
             let description = e.description;
             let price = e.price;
-            let Img=e.Img;
+            let img=e.img;
           let uid = sessionStorage.getItem("user_id");
             const insertUrl='http://localhost:3000/cart';
             axios.post(insertUrl, {
@@ -229,7 +180,7 @@ function itemAdded(id){
             name:name,
             description:description,
             price:price,
-            Img:Img
+            img:img
 
       }).then(resp => {
     alert("Item is added to cart !");
@@ -249,16 +200,7 @@ function itemAdded(id){
         console.log(error);
     });
     
-
-  //alert(id);
-  //alert("item added to cart");
-  /*var row = (this).closest("tr");    // Find the row
-    var tds = row.find("td");
-    $.each(tds, function() {
-        console.log($(this).text());
-    });*/
 }
 
 </script>
 
-<!--  -->

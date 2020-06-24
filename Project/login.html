@@ -1,232 +1,273 @@
 <html>
     <head>
-       <!-- <script src="jquery.min.js"></script> -->
      <script src="bootstrap.min.js"></script>
      <link href="bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="css/login.css">
-
-     <script src="https://apis.google.com/js/platform.js" async defer></script>
-  
-    
-    
      <meta name="google-signin-scope" content="profile email">
-
-     <meta name="google-signin-client_id" content="870656439910-hoois480mb1g1a67bt7aj0i3jqvi0bp7.apps.googleusercontent.com">
-
+     <meta name="google-signin-client_id" content="550272332725-ihvvj931jsjtlqomjqvotdcddtudi0u6.apps.googleusercontent.com">
+  	 <script src="https://apis.google.com/js/platform.js" async defer></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
-  </head>
+    </head>
 
-  <body>
-    <nav class="navbar navbar-inverse" style="background-color: #212529">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a  style="color: yellow;"  class="navbar-brand" href="#">eShopper</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="home.html">Home</a></li>
-     
-        
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-       <li><a href="aboutus.html">About us</a></li>
-       <script>
+    <body>
+      <nav class="navbar navbar-inverse" style="background-color: #212529">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a  style="color: yellow;"  class="navbar-brand" href="#">eShopper</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="home.html">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+             <li><a href="aboutus.html">About us</a></li>
+             <script>
+                if(sessionStorage.getItem("user_role")!=null){
+                        document.write(' <li><a href="logout.html">Logout</a></li> ');
+                      }
+                      else{
+                        document.write(' <li><a href="signup.html">Sign Up</a></li><li><a href="login.html">Login</a></li>');
+              
+                      }
+                    </script>
+          </ul> 
+        </div>
+      </nav>
 
-        if(sessionStorage.getItem("user_role")!=null){
-                  document.write(' <li><a href="logout.html">Logout</a></li> ');
+      <style>
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 15px;
+            }
+            .center{
+              margin-top: 20px;
+              width: 500px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 25px;
+            }
+          
+            input[type=submit] {
+              background-color: #0000CC;
+              width: 500px;
+              border: none;
+              border-radius: 5px;
+              color: white;
+              padding: 6px 16px;
+              text-decoration: none;
+              margin-top: 20px;
+              cursor: pointer;
+            }
+            input[type=reset]{
+              background-color: #FF3300;
+              width: 500px;
+              border: none;
+              border-radius: 5px;
+              color: white;
+              padding: 6px 16px;
+              text-decoration: none;
+              margin-top: 10px;
+              margin-bottom: 20px; 
+              cursor: pointer;
+            }
+            input[type=text], input[type=number] {
+              margin: auto;
+              width: 500px;
+              height: 35px;
+              font-size: 20px;
+              border-radius: 5px;    
+              border-left-width: 15px;
+              border-color: #300108;
+            }
+            @media screen and (max-width: 600px) {
+              .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+              }
+            }
+      </style>
+
+
+      <table>
+            <tr>
+              <td style="width: 60%">
+                <img src="person1.jpg">
+              </td>
+              <td>
+                <form class="center" enctype="multipart/form-data" method="get">
+                  <center><label><b>LOG IN</b></label><br></center>
+
+                  <label><b>Mobile</b></label><br>
+                  <input type="text" id="mono"><br>
+                  
+                  <label><b>Password</b></label><br>
+                  <input type="text" id="pwd"><br>
+                
+                  <input type="submit" value="SIGN IN" style="font-size: 20px" id="submitbtn">
+
+                  <center><p style="font-size: 20px; padding-top: 10px; padding-bottom: 4px">or</p></center>
+
+                  
+                  <table>
+                    <tr style="width: 500px; ">
+                    	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+                      <!--<div>
+                        <td><button class="g-signin2" data-onsuccess="onSignIn" id="myP" style="padding: 5px; width: 500px; border-radius: 5px; background-color: #d0d0d0; color: black"><img width="25px" style="margin-right:10px" alt="Google sign-in" 
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />Login with Google
+                        </button></td>
+                      </div>-->
+                    </tr>
+                    
+                  </table>
+          
+                </form>
+              </td>
+            </tr>
+          </table>
+
+  <script>
+      submitbtn.onclick = function (e) {
+            if(mono.value!="" && pwd.value!=""){
+              e.preventDefault(); 
+              getuser();
+            }
+            else{
+              alert("Fill all the details");
+            }
+      };
+
+      function getuser(){
+
+            const url='http://localhost:3000/users'
+
+            axios.get(url).then(resp => {
+                data = resp.data;
+                var array = getDataById(data);
+                if(array.length<2){
+                  alert("You have not registered");
+                  window.location.href = "login.html";
                 }
                 else{
-                  document.write(' <li><a href="signup.html">Sign Up</a></li><li><a href="login.html">Login</a></li>');
-        
-                }
-              </script>
-        
-    </ul> 
-  </div>
-</nav>
-
-<div class="row1">
-<div class="row2">
-  <div class="col1"></div>
-  <div class="col2">
-
-    <center><h1 class="h1">Please Login!</h1></center>
-   
-
-    <form>
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label"> E-mail</label>
-      <div class="col-sm-10">
-        <input class="form-control" id="userid" name="userid" type="text" placeholder="Enter-Your-Name"  required><br>
-      </div> 
-      </div> 
-      
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-10">
-          <input class="form-control" type="password" id="pwd" name="pwd" placeholder="Enter-Your-Password" required><br>
-        </div> 
-        </div>   
-   
-    <!-- <input type="checkbox" checked="checked" name="remember"> Remember me <br> -->
-    <button id="submitbtn" name="submitbtn" type="submit">Login</button></form>
-   
-      
-    <center> <h4> or</h4></center>
-     <center> <div class="g-signin2" data-onsuccess="onSignIn" id="myP"></div></center>
-<img id="myImg" ><br>
-<p id="name"></p> 
-<div id="status"></div>
-</div>
-</div>
-
-</div>
-
-
-<script>
-
-  const url='http://localhost:3000/users'
-
-submitbtn.onclick = function (e) {
-
-e.preventDefault(); 
-// alert("sdfsdfsdfs");
-getuser();
-
-
-// alert(sessionStorage.getItem("user_role"));
-  
-
-// window.location.href = "home.html";
-     
-  };
-
-function getuser(){
-
-axios.get(url).then(resp => {
-    data = resp.data;
-    var array = getDataById(data);
-    if(array.length<2){
-      alert("You have not registered");
-     window.location.href = "login.html";
-    }
- 
-    // '<%Session["user_id"] = "' + array[0] + '"; %>';
-    // '<%Session["UserName"] = "' + array[1] + '"; %>';
-    // '<%Session["user_email"] = "' + array[3] + '"; %>';
-    // '<%Session["user_role"] = "' + array[3] + '"; %>';
-    //  alert('<%=Session["UserName"] %>');
-    // sessionStorage.clear();
-    sessionStorage.clear();
-    // sessionStorage.removeItem("user_id");
-    // sessionStorage.removeItem("user_name");
-    // sessionStorage.removeItem("user_email");
-    // sessionStorage.removeItem("user_role");
-
-    sessionStorage.setItem("user_id",array[0]);
-    sessionStorage.setItem("user_name",array[1]);
-    sessionStorage.setItem("user_email",array[2]);
-    sessionStorage.setItem("user_role",array[3]);
-    sessionStorage.setItem("user_village",array[4]);
-    sessionStorage.setItem("user_district",array[5]);
-    sessionStorage.setItem("user_state",array[6]);
-    sessionStorage.setItem("user_pin",array[7]);
-   
-  //  alert(sessionStorage.getItem("user_role"));
-   window.location.href = "home.html";
-})
-.catch(error => {
-    console.log(error);
-});   
-
-
-    function getDataById(data) {
-
-var elements;
-
-data.map(e => {
-   
-if(e.email == userid.value){
-
-   if(e.password!=pwd.value){
-     alert("Wrong Password!");
-     window.location.href = "login.html";
-   }
-    
-    elements = [`${e.id}`, `${e.name}`, `${e.email}`, `${e.role}`, `${e.Village}`, `${e.District}`, `${e.State}`, `${e.Pin}`];
-
-}
-
-})
-return elements;
-}
-}
-
-
-      function onSignIn(googleUser) {
-      // window.location.href='success.jsp';
-
-     
-      
-          var profile = googleUser.getBasicProfile();
-          var imagurl=profile.getImageUrl();
-          var name=profile.getName();
-          var email=profile.getEmail();
-          document.getElementById("myImg").src = imagurl;
-          document.getElementById("name").innerHTML = name;
-                   document.getElementById("myP").style.visibility = "hidden";
+                  if(array[3]=="Buyer"){
+                    sessionStorage.clear();
+                    sessionStorage.setItem("user_id",array[0]);
+                    sessionStorage.setItem("user_name",array[1]);
+                    sessionStorage.setItem("user_email",array[2]);
+                    sessionStorage.setItem("user_role",array[3]);
+                    sessionStorage.setItem("user_village",array[4]);
+                    sessionStorage.setItem("user_district",array[5]);
+                    sessionStorage.setItem("user_state",array[6]);
+                    sessionStorage.setItem("user_pin",array[7]);
+                    window.location.href = "displayAllProduct(jyoti).html";
+                  }
+                  else if(array[3]=="Seller"){
+                    sessionStorage.clear();
+                    sessionStorage.setItem("user_id",array[0]);
+                    sessionStorage.setItem("user_name",array[1]);
+                    sessionStorage.setItem("user_email",array[2]);
+                    sessionStorage.setItem("user_role",array[3]);
+                    sessionStorage.setItem("user_village",array[4]);
+                    sessionStorage.setItem("user_district",array[5]);
+                    sessionStorage.setItem("user_state",array[6]);
+                    sessionStorage.setItem("user_pin",array[7]);
+                    sessionStorage.setItem("user_title",array[8]);
+                    sessionStorage.setItem("user_des",array[9]);
+                    sessionStorage.setItem("user_status",array[10]);
+                    if(array[10]=="requested"){
+                      alert("Your request in under progress...");
+                    }
+                    else if(array[10]=="permitted"){
+                      window.location.href = "product_seller.html";
+                    }
+                    else if(array[10]=="rejected"){
+                      alert("Your request rejected");
+                    }
+                    
+                  }
+                  else if(array[3]=="Admin"){
+                    sessionStorage.clear();
+                    sessionStorage.setItem("user_id",array[0]);
+                    sessionStorage.setItem("user_name",array[1]);
+                    sessionStorage.setItem("user_email",array[2]);
+                    sessionStorage.setItem("user_role",array[3]);
+                    sessionStorage.setItem("user_village",array[4]);
+                    sessionStorage.setItem("user_district",array[5]);
+                    sessionStorage.setItem("user_state",array[6]);
+                    sessionStorage.setItem("user_pin",array[7]);
+                    window.location.href = "Admin.html";
+                  }
                   
-                   sessionStorage.clear();
-                   var nid = new Date().getTime();
-                   sessionStorage.setItem("user_id",nid);
-    sessionStorage.setItem("user_name",name);
-    sessionStorage.setItem("user_email",email);
-    sessionStorage.setItem("user_role","Buyer");
+                }
+            
+        })
+        .catch(error => {
+            console.log(error);
+        });   
+
+
+        function getDataById(data) {
+                var elements;
+                var i=0;
+                data.map(e => {
+                    if(e.mono == mono.value && e.password == pwd.value){
+                        i=1;
+                        if(e.role == "Buyer"){
+                          elements = [`${e.id}`, `${e.name}`, `${e.email}`, `${e.role}`, `${e.Village}`, `${e.District}`, `${e.State}`, `${e.Pin}`];
+                        }
+                        else if(e.role == "Seller"){
+                            
+                            elements = [`${e.id}`, `${e.name}`, `${e.email}`, `${e.role}`, `${e.Village}`, `${e.District}`, `${e.State}`, `${e.Pin}`, `${e.title}`, `${e.description}`, `${e.status}`];
+                        }
+                        else if(e.role == "Admin"){
+                          elements = [`${e.id}`, `${e.name}`, `${e.email}`, `${e.role}`, `${e.Village}`, `${e.District}`, `${e.State}`, `${e.Pin}`];
+                        }
+                    }
+                })
+                if(i==0){
+                  alert("Mobile number or password is invalid");
+                }
+                return elements;
+        }
+  }
+
+
+        /*function onSignIn(googleUser) {
+        	alert("1");
+            var profile = googleUser.getBasicProfile();
+            var imagurl=profile.getImageUrl();
+            var name=profile.getName();
+            var email=profile.getEmail();
+            document.getElementById("myImg").src = imagurl;
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("myP").style.visibility = "hidden";
+            sessionStorage.clear();
+            var nid = new Date().getTime();
+            sessionStorage.setItem("user_id",nid);
+            sessionStorage.setItem("user_name",name);
+            sessionStorage.setItem("user_email",email);
+            sessionStorage.setItem("user_role","Buyer");
+            document.getElementById("status").innerHTML = 'Welcome '+name+'!<a href=home.html?email=/>Continue with Google login</a></p>'
+        }*/
+        
+        function myFunction() {
+            gapi.auth2.getAuthInstance().disconnect();
+            location.reload();
+        }
    
-          document.getElementById("status").innerHTML = 'Welcome '+name+'!<a href=home.html?email=/>Continue with Google login</a></p>'
+  </script>
 
-           
-           
-       }
-      
-      
-      function myFunction() {
-        gapi.auth2.getAuthInstance().disconnect();
-          location.reload();
-      }
- 
-       </script>
-
-
-<!-- <button onclick="myFunction()">Signout</button> -->
-
-<!-- Footer -->
-<div class="footer">
-
-  <!-- Footer Elements -->
-  <div class="container">
-
-    <!-- Call to action -->
-    <ul class="list-unstyled list-inline text-center py-2">
-      <li class="list-inline-item">
-        <h5 class="mb-1">Register for free</h5>
-      </li>
-      <li class="list-inline-item">
-        <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
-      </li>
-    </ul>
-    <!-- Call to action -->
-
-  </div>
-  <!-- Footer Elements -->
-
-  <!-- Copyright -->
-  <div class="footer">© 2020 Copyright:
-    <a href="home.html">eShopper.com</a>
-  </div>
-  <!-- Copyright -->
-
-</div>
-<!-- Footer -->
-     </div>
-  </body>
-  </html>
+      <div class="footer">
+        <div class="container">
+          <ul class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+              <h5 class="mb-1">Register for free</h5>
+            </li>
+            <li class="list-inline-item">
+              <a href="signup.html" class="btn btn-primary">Sign up!</a><br>
+            </li>
+          </ul>
+        </div>
+        <div class="footer">© 2020 Copyright:
+          <a href="home.html">eShopper.com</a>
+        </div>
+      </div>
+    </body>
+</html>

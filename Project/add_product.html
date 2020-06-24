@@ -110,7 +110,14 @@
                 <div class="col-sm-10">
                     <input required placeholder="Price" class="form-control" type="number" id="p_price" name="p_price" /><br>
                 </div> 
-                </div>   
+                </div>
+
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Image</label>
+                <div class="col-sm-10">
+                    <input required placeholder="Choose file" class="form-control" type="file" id="p_img" name="p_img" style="padding-bottom: 5px"/><br>
+                </div> 
+                </div>
 
 
                 <div class="form-group row">
@@ -182,7 +189,29 @@ function addUser() {
   let price = p_price.value;
   let status = p_status.value;
   let description = p_desc.value;
-  let Img = "http://localhost/eShopper/Project/images/dress1.jpg";
+  let x = document.getElementById("p_img");
+  
+  if ('files' in x) {
+    if (x.files.length == 0) {
+      alert("Image not selected");
+    } else {
+      for (var i = 0; i < x.files.length; i++) {
+        var file = x.files[i];
+        if ('name' in file) {
+          var img = file.name;
+        }
+      }
+    }
+  } 
+  else {
+    if (x.value == "") {
+      alert("Image not selected");
+    } else {
+      alert("The files property is not supported by your browser!");
+      txt += "The files property is not supported by your browser!";
+      txt  += "<br>The path of the selected file: " + x.value; 
+    }
+  }
   axios.post(url, {
     id,
     sid,
@@ -191,7 +220,7 @@ function addUser() {
     price,
     status,
     description,
-    Img
+    img
   })
     .then(function () { alert("Record Inserted!") }).catch(function (er) { alert("Error!"); console.error(er) });
 }

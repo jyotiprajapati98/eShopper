@@ -49,6 +49,7 @@
     <thead>
       <tr class="info">
         <th>Name</th>
+        <th>Mobile</th>
         <th>Email</th>
    
       </tr>
@@ -71,15 +72,15 @@
     
     function createTable(data) {
 
-let table =''
+          let table =''
 
-data.map(e => {
-  if(e.role=="Buyer"){
-  table += `<tr><td>${e.name}</td> <td>${e.email}</td>  </tr>`
-  }
-})
-return table;
-}
+          data.map(e => {
+            if(e.role=="Buyer"){
+            table += `<tr><td>${e.name}</td><td>${e.mono}</td> <td>${e.email}</td>  </tr>`
+            }
+          })
+          return table;
+    }
 
 </script>
 </div>

@@ -112,21 +112,22 @@
     
     function createTable(data) {
 
-let table =''
+          let table =''
 
-data.map(e => {
+          data.map(e => {
 
 
-  table += `<tr><td>${e.id}</td> <td>${e.name}</td> <td>${e.category}</td> <td>${e.price}</td>  <td>${e.description}</td> <td>${e.status}</td> <td><a class='btn btn-success btn-sm' href='edit_product_detail.html?id1=${e.id}'>Edit</a></td> </tr>`;
+            table += `<tr><td>${e.id}</td> <td>${e.name}</td> <td>${e.category}</td> <td>${e.price}</td>  <td>${e.description}</td> <td>${e.status}</td> <td><a class='btn btn-success btn-sm' href='edit_product_detail.html?id1=${e.id}'>Edit</a></td> </tr>`;
 
-})
-return table;
-}
+          })
+          return table;
+          }
 
 </script>
 
 
 <!-- Footer -->
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <div  class="footer">
 
   <!-- Footer Elements -->

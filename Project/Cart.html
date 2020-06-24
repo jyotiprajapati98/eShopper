@@ -29,7 +29,7 @@
     <style>
         body {
         font-family: Arial, Helvetica, sans-serif;
-   
+        color: black;
       }
       .center{
         margin-top: 20px;
@@ -85,29 +85,6 @@
   }
     </style>
     <link rel="stylesheet" href="css/mystyle.css">
-<!-- 
-    <nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
-     background-color: #300108">
-        <div class="container-fluid">
-          <div style="background-color:blanchedalmond; height:80px;width:185px;border-radius:50px;">
-        
-              <a class="navbar-brand" href="index.html" style="color:#300108;margin-top:10px; font-size: 40px;font-weight: bold;"><center>eshopper</center></a>
-          </div>
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-           
-            <li class="nav-item" style="margin-left: 10px;">
-          <a class="nav-link" style="color: blanchedalmond;" href="displayAllProduct.html">Products</a>
-        </li>
-          </ul>
-          <ul class="navbar-nav navbar-right">
-        
-            <li><a style="font: blanchedalmond; margin-right: 20px;" href="user_dashboard.html"><span class="glyphicon glyphicon-user"></span>Dashboard </a></li>
-            <li><a style="font: blanchedalmond; margin-right: 20px;" href="cart.html"><span class="glyphicon glyphicon-log-in"></span> My Cart</a></li>
-            <li><a style="font: blanchedalmond;" href="logout.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-      
-          </ul>
-        </div>
-      </nav>   -->
 
   <nav class="navbar navbar-inverse navbar-expand-md bigBar" style=" 
      background-color: #212529">
@@ -136,13 +113,6 @@
                       
                               }
                             </script>
-                      
-              <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Logout
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As User</a></li>
-                <li><a style="color: rgb(122, 91, 91);" class="nav-link" href="login.html">As admin</a></li>
-              </ul> -->
             </li>
       
           </ul>
@@ -157,33 +127,35 @@
 
     <div class="row" style="margin: 20px">
         <div class="leftcolumn" style="width: 25%">
-            <div class="card" style="height: 100px">
+            <div class="card" style="height: 100px; background-color: #0066cc">
                 <table><tr>
-                    <td><img src="/images/person1.jpg" width="90" height="90" style="margin: 5px"></td>
-                    <td><h3>Hii user</h3></td>
+                    <td><img src="person1.jpg" width="90" height="90" style="margin: 5px; border-radius: 100px"></td>
+                    <td><h3>Happy Shopping</h3></td>
                 </tr></table>
             </div>
             <div class="card"style=" margin-top:10px; height:300px">
                
                <table style="height: 100%">
-                   <tr><td><button style="width: 100%; height: 75px; background-color: aaa" id="personal">Personal Info</button></td></tr>
-                   <tr><td><button style="width: 100%; height: 75px; background-color: bbb" id="address">Address</button></td></tr>
-                   <tr><td><button style="width: 100%; height: 75px; background-color: aaa" id="order">My orders</button></td></tr>
-                   <tr><td><button style="width: 100%; height: 75px; background-color: bbb" id="cart">My cart</button></td></tr>
+                   <tr><td><button style="width: 100%; height: 100px; background-color: #669999" id="personal">Personal Info</button></td></tr>
+                   <tr><td><button style="width: 100%; height: 100px; background-color: #999966" id="address">Address</button></td></tr>
+                   <tr><td><button style="width: 100%; height: 100px; background-color: #669999" id="order">My orders</button></td></tr>
+                   <tr><td><button style="width: 100%; height: 100px; background-color: #999966" id="cart">My cart</button></td></tr>
                </table>
                
             </div>
         </div>
-        <div class="rightcolumn" style="width: 75% ">
-            <div class="card" style="min-height: 610px; margin-left:10px">
-                    <table id="tabledata"> 
+        <div class="rightcolumn" style="width: 75%;">
+            <div class="card" style="min-height: 610px; margin-left:10px; width: 100%">
+                    <div style="background-color: #aaa; padding-bottom: 50px; height: 100%">
+                    <table id="tabledata" style="margin-right: 20px; width:95%; "> 
                     
                     <tbody id="tablebody">
 
                     </tbody>
                     </table>
+                  </div>
                     <script>
-                      // alert(sessionStorage.getItem("user_village"));
+
                         myCart();
                         document.getElementById("personal").onclick = function() {myPersonal()};
                         //document.getElementById("address").onclick = function() {myAddress()};
@@ -193,6 +165,7 @@
                         function myPersonal() {
                           let uid = sessionStorage.getItem("user_id");
                                 const url='http://localhost:3000/users?id='+uid;
+                          
                                 axios.get(url)
                                 .then(resp => {
                                     data = resp.data;
@@ -207,7 +180,27 @@
                                     let table ='<tr><td><h2>Personal Info</h2></td></tr>'
                                     var i=0;
                                     data.map(e => {
-                                      table += `<br><tr><td>Name: ${e.name}</td></tr><br><tr><td>Email: ${e.email}</td></tr>`
+                                      table += `<br><br><tr style="background-color:#669999;">
+                                                      <td style="padding-left:200px; padding-top:10px; padding-bottom:10px">Name: </td><td style="padding-right:300px; padding-top:10px; padding-bottom:10px"">${e.name}</td> 
+                                                    </tr>
+                                                <br><br><tr style="background-color:#669999;">
+                                                      <td style="padding-left:200px; padding-top:10px; padding-bottom:10px"">Mobile No.: </td><td>${e.mono}</td>
+                                                      </tr>
+                                                <br><br><tr style="background-color:#669999;">
+                                                      <td style="padding-left:200px; padding-top:10px; padding-bottom:10px"">Email: </td><td>${e.email}</td>
+                                                      </tr>
+                                                <br><br><tr style="background-color:#669999;">
+                                                      <td style="padding-left:200px; padding-top:10px; padding-bottom:10px"">Address: </td><td>${e.addr}</td>
+                                                      </tr>
+                                                <br><br><tr style="background-color:#669999;">
+                                                      <td style="padding-left:200px; padding-top:10px; padding-bottom:10px"">District: </td><td>${e.city}</td>
+                                                      </tr>
+                                                <br><br><tr style="background-color:#669999;">
+                                                      <td style="padding-left:200px; padding-top:10px; padding-bottom:10px"">State: </td><td>${e.state}</td>
+                                                      </tr>
+                                                <br><br><tr style="background-color:#669999;">
+                                                      <td style="padding-left:200px; padding-top:10px; padding-bottom:10px"">Pin: </td><td>${e.pin}</td>
+                                                      </tr><br>`
                                     })
                                     return table;
                                 }
@@ -230,23 +223,24 @@
                                     let table =''
                                    
                                     data.map(e => {
-                                      table += `<tr><td><div class="center" enctype="multipart/form-data" method="post">
+                                      table += `<div style="margin-left:50px">
+                                                <tr><td>
                                                 <label><h2><b>SHIPPING DETAILS</b><h2></label><br>
                                                 <label><b>Name</b></label><br>
                                                 <input type="text" id="name" value="${e.name}"><br>
                                                 <label><b>Mobile</b></label><br>
                                                 <input type="text" id="email" value="${e.email}"><br>
                                                 <label><b>Address</b></label><br>
-                                                <input type="text" id="addr" value="${e.Village}"><br>
+                                                <input type="text" id="addr" value="${e.addr}"><br>
                                                 <label><b>City</b></label><br>
-                                                <input type="text" id="city" value="${e.District}"><br>
+                                                <input type="text" id="city" value="${e.city}"><br>
                                                 <label><b>State</b></label><br>
-                                                <input type="text" id="state" value="${e.State}"><br>
+                                                <input type="text" id="state" value="${e.state}"><br>
                                                 <label><b>Pincode</b></label><br>
-                                                <input type="number" id="pin" value="${e.Pin}"><br>
+                                                <input type="number" id="pin" value="${e.pin}"><br>
                                                 <input type="submit" value="PLACE ORDER" style="font-size: 20px" id="placed" onclick="done()">
                                                 <input type="reset" value="RESET" style="font-size: 20px">
-                                              </div></td></tr>`
+                                              </td></tr>`
                                    
                                     
                                     })
@@ -257,7 +251,7 @@
                         }
                         function myCart() {
                           let uid = sessionStorage.getItem("user_id");
-                                const url='http://localhost:3000/cart?uid='+uid;
+                                const url='http://localhost:3000/cart';
                                 axios.get(url)
                                 .then(resp => {
                                     data = resp.data;
@@ -268,40 +262,48 @@
                                 });   
                                 
                                 function createTable(data) {
-
-                                    let table =''
+                                    let table ='<tr><td><h2>My Cart</h2></td></tr>'
                                     var i=0;
                                     var j=0;
                                     data.map(e => {
-                                        table += `<tr style="margin-right:10px;">
-                                                    <td style="width:30%">
-                                                        <center><img src="${e.Img}" width="150" height="200"/>
-                                                        </center>
-                                                    </td>
-                                                    <td style="background-color:#ffffff">
-                                                        <center>${e.name}
-                                                        </center>
-                                                    </td>
-                                                    <td style="background-color:#ffffff">
-                                                        <center>${e.price}
-                                                        </center>
-                                                    </td>
-                                                    <td>
-                                                        <center><button style="margin-top:20px margin-bottom:20px; width:90%; background-color:#FF3300; border:none; border-radius:5px; padding:5px;" onclick="remove(${e.id})">Remove</button>
-                                                        </center>
-                                                    </td>
-                                                  </tr>`
+                                        if((parseInt(uid))==(parseInt(e.uid))){
+                                                table += `<div style="margin:20px; color:black">
+                                                          <tr>
+                                                            <td style="width:30%; padding-top:10px; padding-bottom:10px; background-color:#999966">
+                                                                <center><img src="${e.img}" width="200" height="200"/>
+                                                                </center>
+                                                            </td>
+                                                            <td style="background-color:#999966">
+                                                                <center>${e.name}
+                                                                </center>
+                                                            </td>
+                                                            <td style="background-color:#999966">
+                                                                <center>Rs. ${e.price}
+                                                                </center>
+                                                            </td>
+                                                            <td style="background-color:#999966">
+                                                                <center>${e.description}
+                                                                </center>
+                                                            </td>
+                                                            <td style="background-color:#999966">
+                                                                <button style="width:80px; margin-top:20px; margin-bottom:20px; margin-left:50px; width:40%; background-color:#FF3300; border:none; border-radius:5px; padding:10px;" onclick="remove(${e.id})">Remove</button>
+                                                                
+                                                            </td>
+                                                          </tr>
+                                                          </div>`
                                         i += parseInt(e.price);
                                         j++;
+                                        }
+                            
                                     })
-                                    table += `<tr><td></td><td></td><td></td><td><center>Total Payable: Rs. ${i}</center></td></tr>`
-                                    table += `<tr><td></td><td></td><td></td><td><button id="checkout" style="margin-top:20px; margin-right:10px; width:97%; background-color:#008000; color:white; border:none; border-radius:5px; padding:5px;" onclick="myAddress()">Checkout</button></td></tr>`
+                                    table += `<br><tr><td></td><td></td><td></td><td></td><td><center><h3>Total Payable: Rs. ${i}</h3></center></td></tr>`
+                                    table += `<tr><td></td><td></td><td></td><td></td><td><button id="checkout" style="margin-top:20px; margin-right:10px; width:98%; background-color:#008000; color:white; border:none; border-radius:5px; padding:15px;" onclick="myAddress()">Checkout</button></td></tr>`
                                     return table;
                                 }
                         }
                         function myOrder() {
                           let uid = sessionStorage.getItem("user_id");
-                                const url='http://localhost:3000/cart?uid='+uid;
+                                const url='http://localhost:3000/orders';
                                 axios.get(url)
                                 .then(resp => {
                                     data = resp.data;
@@ -313,103 +315,105 @@
                                 
                                 function createTable(data) {
 
-                                    let table ='<tr></tr><br>'
-                                    var i=0;
-                                    var j=0;
+                                    let table ='<tr><td><h2>My Orders</h2></td></tr><br>'
+                                    
                                     data.map(e => {
-                                        if(i==4){
-                                            table+='<tr></tr>'
-                                            i=0;
-                                          }
-                                        table += `<td><table id="inner"><tr><td><img src="${e.Img}" width="225" height="300"/></td></tr><tr><td>${e.name} </td></tr><tr><td>Rs. ${e.price}</td></td></tr></table></td>`
-                                        i++;
-                                        j++;
+                                      if((parseInt(uid))==(parseInt(e.uid))){
+                                        table += `<div style="margin:20px; border-radius:10px">
+                                                    <tr>
+                                                    <td style="width:30%; padding-top:10px; padding-bottom:10px; background-color:#669999">
+                                                        <center><img src="${e.img}" width="150" height="200"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="background-color:#669999">
+                                                        <center>${e.name}
+                                                        </center>
+                                                    </td>
+                                                    <td style="background-color:#669999">
+                                                        <center>${e.price}
+                                                        </center>
+                                                    </td>
+                                                    <td style="background-color:#669999">
+                                                        <center>${e.description}
+                                                        </center>
+                                                    </td>
+                                                    <td style="background-color:#669999; padding-right:20px">
+                                                        <center>Shipping Details<br><br>${e.addr}<br>${e.city}
+                                                        <br>${e.state}<br>${e.pin}</center>
+                                                    </td>
+                                                  </tr></div>`
+                                      }
                                     })
                                     return table;
                                 }
                         }
 
                         function remove(did){
-            //               let uid = sessionStorage.getItem("user_id");
-            //        const url='http://localhost:3000/cart/'+did+'/';
-                 
-            //        axios.delete(url)
-            //  .then(resp => {
-            //       console.log(resp.data)
-            //          }).catch(error => {
-            //           console.log(error);
-            //              });   
-                           window.location = "Cart.html";
+      
                         }
 
-                        // function done(){
-                    //  
-//                             window.location = "orderplaced.html";
-//                         }
-                        
+                    
+                        function done() {
+                          let uid = sessionStorage.getItem("user_id");
+                          const url='http://localhost:3000/cart?uid='+uid;
+                         
 
-                        
-function done() {
-  let uid = sessionStorage.getItem("user_id");
-  const url='http://localhost:3000/cart?uid='+uid;
- 
+                          axios.get(url)
+                            .then(resp => {
+                                data = resp.data;
+                                data.forEach(e => {
+                                
+                                    var nid = new Date().getTime();
+                                    let id = e.id;
+                                    let pid = e.pid;
+                                    let sid = e.sid;
+                                    let name = e.name;
+                                    let description = e.description;
+                                    let price = e.price;
+                                    let img=e.img;
+                                    let uid = sessionStorage.getItem("user_id");
+                                    let addr = sessionStorage.getItem("user_village");
+                                    let city = sessionStorage.getItem("user_district");
+                                    let state = sessionStorage.getItem("user_state");
+                                    let pin = sessionStorage.getItem("user_pin");
+                                    let status = "Shipped";
+                                    const insertUrl='http://localhost:3000/orders';
+                                  
+                                    axios.post(insertUrl, {
+                                      id:nid,
+                                      pid:pid,
+                                      uid: uid,
+                                      sid: sid,
+                                      name:name,
+                                      description:description,
+                                      price:price,
+                                      status:status,
+                                      img:img,
+                                      addr:addr,
+                                      city:city,
+                                      state:state,
+                                      pin:pin 
 
-  axios.get(url)
-    .then(resp => {
-        data = resp.data;
-        data.forEach(e => {
-        
-            var nid = new Date().getTime();
-            let id = e.id;
-            let pid = e.pid;
-            let sid = e.sid;
-            let name = e.name;
-            let description = e.description;
-            let price = e.price;
-            let Img=e.Img;
-          let uid = sessionStorage.getItem("user_id");
-          let Village = sessionStorage.getItem("user_village");
-          let District = sessionStorage.getItem("user_district");
-          let State = sessionStorage.getItem("user_state");
-          let Pin = sessionStorage.getItem("user_pin");
-          let status = "Shipped";
-            const insertUrl='http://localhost:3000/orders';
-          
-            axios.post(insertUrl, {
-              id:nid,
-            pid:pid,
-            uid: uid,
-            sid: sid,
-            name:name,
-            description:description,
-            price:price,
-            status:status,
-            Img:Img,
-            Village:Village,
-            District:District,
-            State:State,
-            Pin:Pin 
+                              }).then(resp => {
+                          //  alert("Item is added to cart !");
+                            // window.location.href = "userCart.html";
 
-      }).then(resp => {
-  //  alert("Item is added to cart !");
-    // window.location.href = "userCart.html";
-
-  console.log(resp.data);
-    }).catch(error => {
-        console.log(error);
-    });
+                          console.log(resp.data);
+                            }).catch(error => {
+                                console.log(error);
+                            });
 
 
-  });
-        
-  window.location = "orderplaced.html";    
-    })
-    .catch(error => {
-        console.log(error);
-    });
+                          });
+                                
+                          window.location = "orderplaced.html";    
+                            })
+                            .catch(error => {
+                                console.log(error);
+                            });
 
-    
-}
+                            
+                        }
 
                         
                     </script> 
@@ -418,22 +422,6 @@ function done() {
     </div>
 
 <br><br><br><br>
-
-<!-- 
-
-<div  class="footer" style="background-color: #E62044">
-    <div class="container">
-      <ul class="list-unstyled list-inline text-center py-2">
-        <li class="list-inline-item">
-          <a href="aboutus.html" class="btn btn-primary" >About Us</a><br>
-        </li>
-      </ul>  
-    </div> 
-    <div class="footer">© 2020 Copyright:
-      <a href="home.html">eShopper.com</a>
-    </div>
-   </div> -->
-
 
    <!-- Footer -->
 <div class="footer">
