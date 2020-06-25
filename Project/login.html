@@ -21,6 +21,9 @@
           <ul class="nav navbar-nav navbar-right">
              <li><a href="aboutus.html">About us</a></li>
              <script>
+                if(sessionStorage.getItem("user_role")=="Buyer"){
+              document.write(' <li><a href="Cart.html">My cart</a></li> ');
+            }
                 if(sessionStorage.getItem("user_role")!=null){
                         document.write(' <li><a href="logout.html">Logout</a></li> ');
                       }
@@ -156,7 +159,7 @@
                     sessionStorage.setItem("user_district",array[5]);
                     sessionStorage.setItem("user_state",array[6]);
                     sessionStorage.setItem("user_pin",array[7]);
-                    window.location.href = "displayAllProduct(jyoti).html";
+                    window.location.href = "displayAllProduct.html";
                   }
                   else if(array[3]=="Seller"){
                     sessionStorage.clear();
@@ -207,7 +210,7 @@
                 var elements;
                 var i=0;
                 data.map(e => {
-                    if(e.mono == mono.value && e.password == pwd.value){
+                    if(e.email == mono.value && e.password == pwd.value){
                         i=1;
                         if(e.role == "Buyer"){
                           elements = [`${e.id}`, `${e.name}`, `${e.email}`, `${e.role}`, `${e.Village}`, `${e.District}`, `${e.State}`, `${e.Pin}`];
@@ -222,30 +225,34 @@
                     }
                 })
                 if(i==0){
-                  alert("Mobile number or password is invalid");
+                  alert("Email or password is invalid");
                 }
                 return elements;
         }
   }
 
 
-        /*function onSignIn(googleUser) {
-        	alert("1");
+        function onSignIn(googleUser) {
+        	// alert("1");
             var profile = googleUser.getBasicProfile();
             var imagurl=profile.getImageUrl();
             var name=profile.getName();
             var email=profile.getEmail();
-            document.getElementById("myImg").src = imagurl;
-            document.getElementById("name").innerHTML = name;
-            document.getElementById("myP").style.visibility = "hidden";
+            // document.getElementById("myImg").src = imagurl;
+            // document.getElementById("name").innerHTML = name;
+            // document.getElementById("myP").style.visibility = "hidden";
             sessionStorage.clear();
             var nid = new Date().getTime();
             sessionStorage.setItem("user_id",nid);
             sessionStorage.setItem("user_name",name);
             sessionStorage.setItem("user_email",email);
             sessionStorage.setItem("user_role","Buyer");
-            document.getElementById("status").innerHTML = 'Welcome '+name+'!<a href=home.html?email=/>Continue with Google login</a></p>'
-        }*/
+
+            // document.getElementById("status").innerHTML = 'Welcome '+name+'!<a href=home.html?email=/>Continue with Google login</a></p>'
+          
+          alert("You have successfully logged in");
+            window.location.href = "displayAllProduct.html";
+        }
         
         function myFunction() {
             gapi.auth2.getAuthInstance().disconnect();

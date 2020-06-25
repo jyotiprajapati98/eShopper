@@ -114,8 +114,11 @@
 
                 <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Image</label>
-                <div class="col-sm-10">
-                    <input required placeholder="Choose file" class="form-control" type="text" id="p_img" name="p_img"/><br>
+                
+                <img class="col-sm-2" src="" style="width: 100px; height: 100px;" id="my_img" name="my_img">
+
+                <div class="col-sm-8">
+                    <input required placeholder="Choose file" class="form-control" type="file" id="p_img" name="p_img"/><br>
                 </div> 
                 </div>
 
@@ -184,7 +187,7 @@ axios.get(url).then(resp => {
     p_price.value = array[3];
     p_status.value = array[4];
     p_desc.value = array[5];
-    p_img.value = array[6];
+    document.getElementById("my_img").src = array[6];
     //document.getElementById("p_img").innerHTML = p_img.value;
 })
 .catch(error => {
@@ -227,8 +230,26 @@ updatebtn.onclick = function (e) {
         let price = p_price.value;
         let status = p_status.value;
         let description = p_desc.value;
-        let img = p_img.value;
+        // let img = my_img.src;
         let sid = sessionStorage.getItem("user_id");
+
+        let x = document.getElementById("p_img");
+
+        if ('files' in x) {
+    if (x.files.length == 0) {
+      var img = my_img.src;
+    } else {
+      for (var i = 0; i < x.files.length; i++) {
+        var file = x.files[i];
+        if ('name' in file) {
+          var img = file.name;
+          img= "http://localhost/eShopper/Project/images/"+img;
+        }
+      }
+    }
+  } 
+ 
+
         axios.put(url +"/" +id +"/",{
           id,
           sid,

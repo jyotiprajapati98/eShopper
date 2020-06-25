@@ -4,8 +4,8 @@
       "id": 1592840985780,
       "name": "Chhavi",
       "mono": "9329351259",
-      "email": "chhavi@gmail.com",
-      "password": "123",
+      "email": "admin@gmail.com",
+      "password": "Abc@1234",
       "addr": "nandslc",
       "city": "nikn",
       "state": "knklnj",
@@ -16,8 +16,8 @@
       "id": 1592840985779,
       "name": "Chhavi",
       "mono": "9993465963",
-      "email": "chhavi@gmail.com",
-      "password": "123",
+      "email": "b1@gmail.com",
+      "password": "Abc@1234",
       "addr": "nandslc",
       "city": "nikn",
       "state": "knklnj",
@@ -27,8 +27,8 @@
     {
       "name": "Chhavi",
       "mono": "7999663627",
-      "email": "bjkbhjj",
-      "password": "123",
+      "email": "s1@gmail.com",
+      "password": "Abc@1234",
       "addr": "jhghbh",
       "city": "vjm",
       "state": "jjhbh",
@@ -42,8 +42,8 @@
     {
       "name": "Chhavi",
       "mono": "9303643194",
-      "email": "cgbajshb",
-      "password": "123",
+      "email": "s2@gmail.com",
+      "password": "Abc@1234",
       "addr": "bjhmvjjb",
       "city": "hbhbkk",
       "state": "hbjhkjhb",
@@ -57,8 +57,8 @@
     {
       "name": "Monu",
       "mono": "6263058584",
-      "email": "bhbkbjknkj",
-      "password": "123",
+      "email": "s3@gmail.com",
+      "password": "Abc@1234",
       "addr": "dcs",
       "city": "bhkb",
       "state": "bhjbj",
@@ -66,14 +66,14 @@
       "role": "Seller",
       "title": "Clothing",
       "description": "fvsegvrt",
-      "status": "rejected",
+      "status": "requested",
       "id": 1592997633250
     },
     {
       "name": "Sonu",
       "mono": "6263058584",
-      "email": "bjhgb jnj",
-      "password": "123",
+      "email": "s4@gmail.com",
+      "password": "Abc@1234",
       "addr": "mb hbmbj",
       "city": " mmn nj,",
       "state": "m mn mn",
@@ -104,7 +104,7 @@
       "price": "49999",
       "status": "Available",
       "description": "Laptop",
-      "img": "http://localhost/eShopper/Project/images/asuslaptop.jpg"
+      "img": "http://localhost/eShopper/Project/images/lenovolaptop.jpg"
     },
     {
       "id": 1592987724398,
@@ -248,7 +248,7 @@
       "name": "Poco X2 smartphone",
       "description": "4 GB RAM, 64 GB ROM ",
       "price": "17999",
-      "img": "pocox2.jpg"
+      "img": "http://localhost/eShopper/Project/images/pocox2.jpg"
     },
     {
       "id": 1592988460387,
@@ -258,7 +258,27 @@
       "name": "Lenovo Laptop",
       "description": "Laptop",
       "price": "45999",
-      "img": "lenovolaptop.jpg"
+      "img": "http://localhost/eShopper/Project/images/lenovolaptop.jpg"
+    },
+    {
+      "id": 1593009617401,
+      "pid": 1592987489482,
+      "uid": null,
+      "sid": "1592937447323",
+      "name": "Poco X2 smartphone",
+      "description": "4 GB RAM, 64 GB ROM ",
+      "price": "17999",
+      "img": "http://localhost/eShopper/Project/images/pocox2.jpg"
+    },
+    {
+      "id": 1593066784753,
+      "pid": 1592987489482,
+      "uid": "1592840985779",
+      "sid": "1592937447323",
+      "name": "Poco X2 smartphone",
+      "description": "4 GB RAM, 64 GB ROM ",
+      "price": "17999",
+      "img": "http://localhost/eShopper/Project/images/pocox2.jpg"
     }
   ]
 }

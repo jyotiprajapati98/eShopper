@@ -19,6 +19,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="aboutus.html">About us</a></li>
         <script>
+           if(sessionStorage.getItem("user_role")=="Buyer"){
+              document.write(' <li><a href="Cart.html">My cart</a></li> ');
+            }
           if(sessionStorage.getItem("user_role")!=null){
                       document.write(' <li><a href="logout.html">Logout</a></li> ');
             }
@@ -108,7 +111,7 @@
                 <label><b>Email</b></label><br>
                 <input type="email" id="uemail"><br>
                 <label><b>Password</b></label><br>
-                <input type="password" id="upwd"><br>
+                <input type="password" id="upwd" ><br>
                 <label><b>Confirm Password</b></label><br>
                 <input type="password" id="ucpwd"><br>
                 <label><b>Address</b></label><br>
@@ -120,14 +123,19 @@
                 <label><b>Pincode</b></label><br>
                 <input type="number" id="upin"><br>
                 <label><b>Type</b></label><br>
-                <select required class="form-control" name="urole" id="urole" onChange="dis_able();">
-                        <option selected="selected">Buyer</option>
-                        <option>Seller</option>
+                <select required class="form-control" name="urole" id="urole">
+                        <option selected="selected" value="Buyer">Buyer</option>
+                        <option value="Seller">Seller</option>
                 </select><br> 
-                <label><b>Business Title</b></label><br>
-                <input type="text" id="utitle"><br>
-                <label><b>Business Description</b></label><br>
-                <input type="text" id="udes"><br>
+
+                <div id="mydivhide">
+                  <label><b>Business Title</b></label><br>
+                  <input type="text" id="utitle"><br>
+                  <label><b>Business Description</b></label><br>
+                  <input type="text" id="udes"><br>
+
+                </div>
+               
                 <input type="submit" value="SIGN UP" style="font-size: 20px" id="submitbtn">
                 <input type="reset" value="RESET" style="font-size: 20px">
               </form>
@@ -136,32 +144,85 @@
         </table>
 
         <script>
-         document.mygkform.utitle.disabled=1;
-         document.mygkform.udes.disabled = 1;
-          function dis_able()
-          {
-            if(document.mygkform.urole.value == 'Seller')
-              { 
-                document.mygkform.utitle.disabled=0;
-                document.mygkform.udes.disabled = 0;
-              }
-            else
-              { 
-                document.mygkform.utitle.disabled=1;
-                document.mygkform.udes.disabled = 1;
-              }
-          }
+
+
+
+          $("#mydivhide").hide();
+
+          $(document).ready(function(){
+    $('#urole').on('change', function() {
+      if ( this.value == 'Seller')
+      {
+        $("#mydivhide").show();
+      }
+      else
+      {
+        $("#mydivhide").hide();
+      }
+    });
+});
+
+
+function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+document.mygkform.uemail.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+ document.mygkform.uemail.focus();
+ return false;
+}
+}
+
+function Check_Password(inputtxt) 
+{ 
+var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+if(inputtxt.value.match(passw)) 
+{ 
+// alert('Correct, try another...')
+document.mygkform.upwd.focus();
+return true;
+}
+else
+{ 
+  alert('Password Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+  document.mygkform.upwd.focus();
+  return false;
+}
+}
+
+ 
+
           const url = 'http://localhost:3000/users'
           submitbtn.onclick = function (e) {
                 if(uname.value!="" && umono.value!="" && uemail.value!="" && upwd.value!="" && ucpwd.value!="" && uaddr.value!="" && ucity.value!="" && ustate.value!="" && upin.value!=""){
-                      if(upwd.value!=ucpwd.value){
+             
+                
+              //  email_Exist();
+              //  var ch = sessionStorage.getItem("check");
+              //  sessionStorage.clear();
+              if(ValidateEmail(document.mygkform.uemail)){
+
+              
+                if(Check_Password(document.mygkform.upwd)){
+               
+                  if(upwd.value!=ucpwd.value){
                           alert("Password Mismatched!");
                         } 
+                     
                       else{
-                            if(document.mygkform.urole.value == 'Seller'){
+                               if(document.mygkform.urole.value == 'Seller'){
                               if(utitle.value!="" && udes.value!=""){
+                                
                                   e.preventDefault();
+                                
                                   addSeller();
+                                 
                               }
                               else{
                                 alert("All fields are mandatory");
@@ -169,17 +230,59 @@
                             }
                             if(document.mygkform.urole.value == 'Buyer'){
                               e.preventDefault();
+                         
                               addUser();
-                            }
+                           
                            }
-                 }
-                  else{
+                       }
+                    }
+                   
+                 }     
+            }
+            else{
                     alert("All fields are mandatory");
                   }
-                    
-            };
+          }
+
+//             function email_Exist() {
+
+//               var url1='http://localhost:3000/users';
+//               // 
+//                     // sessionStorage.setItem("check",false);
+// axios.get(url1).then(resp => {
+//     data = resp.data;
+//     sessionStorage.clear();
+//     getDataById(data);
+ 
+//     // alert(sessionStorage.getItem("check"));
+//     //  if(sessionStorage.getItem("check")==true)
+//     //  alert("Email is already registered 1");
+ 
+// })
+// .catch(error => {
+// console.log(error);
+// });   
+
+
+
+// }
+
+// function getDataById(data) {
+//  var i=0;
+
+//     data.map(e => {
+//         if(e.email == uemail.value ){
+//          i=1;     
+//         }
+//     })
+    
+//                   sessionStorage.setItem("check",i);
+
+                
+// }
               
             function addUser() {
+          
                 var count = parseInt(localStorage.getItem("countuid")) + 1;
                 localStorage.setItem("countuid",count);
                 var id = new Date().getTime();   
@@ -226,6 +329,7 @@
                 let title = utitle.value;
                 let description = udes.value;
                 let status = "requested";
+               
                 axios.post(url, {
                   id,
                   name,
@@ -268,4 +372,5 @@
 </div>
      
   </body>
+
 </html>

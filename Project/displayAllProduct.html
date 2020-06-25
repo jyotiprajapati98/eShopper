@@ -46,11 +46,11 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a style="color: white;"  href="home.html">Home</a></li>
-      <li><a style="color: white;"  href="displayAllProduct(jyoti).html">Products</a></li>
+      <li><a style="color: white;"  href="displayAllProduct.html">Products</a></li>
       <script>
 // alert(sessionStorage.getItem("user_role"));
         if(sessionStorage.getItem("user_role")=="Admin"){
-          document.write("<li><a style="color: white;" href='Admin.html'>Manage Requests</a></li><li><a style="color: white;"  href='viewSeller.html'>View Seller</a></li><li><a style="color: white;"  href='viewUser.html'>View User</a></li>");
+          document.write("<li><a style='color: white;' href='Admin.html'>Manage Requests</a></li><li><a style='color: white;'  href='viewSeller.html'>View Seller</a></li><li><a style='color: white;'  href='viewUser.html'>View User</a></li>");
         }
         
        
@@ -69,9 +69,12 @@
       
 
       <script>
+         if(sessionStorage.getItem("user_role")=="Buyer"){
+              document.write(' <li><a style="color: white;"  href="Cart.html">My Cart</a></li> ');
+            }
 
 if(sessionStorage.getItem("user_role")!=null){
-          document.write(' <li><a style="color: white;"  href="Cart.html">My Cart</a></li> ');
+       
           document.write(' <li><a style="color: white;"  href="logout.html">Logout</a></li> ');
         }
         else{

@@ -29,7 +29,9 @@
     <ul class="nav navbar-nav navbar-right">
        <li><a href="aboutus.html">About us</a></li>
        <script>
-
+ if(sessionStorage.getItem("user_role")=="Buyer"){
+              document.write(' <li><a href="Cart.html">My cart</a></li> ');
+            }
         if(sessionStorage.getItem("user_role")!=null){
                   document.write(' <li><a href="logout.html">Logout</a></li> ');
                 }
